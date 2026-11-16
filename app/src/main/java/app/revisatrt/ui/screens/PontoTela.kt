@@ -33,10 +33,12 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -114,11 +116,19 @@ fun PontoTela(id: Long, nav: Nav) {
 
     val ultima = revisoes.firstOrNull()
     val atencao = ultima?.avaliacao == Avaliacao.DIFICIL
+    val paragrafos = remember(p.textoLei) { paragrafosLei(p.textoLei) }
 
     TelaBase(
         titulo = disc?.nome ?: "",
         voltar = nav::voltar,
         snackbar = snackbar,
+        fab = {
+            ExtendedFloatingActionButton(
+                onClick = { escolherAvaliacao = true },
+                icon = { Icon(Icons.Filled.Check, null) },
+                text = { Text("Revisado") },
+            )
+        },
         acoes = {
             IconButton(onClick = { escopo.launch { repo.favoritar(p.id, !p.favorito) } }) {
                 Icon(
@@ -133,7 +143,7 @@ fun PontoTela(id: Long, nav: Nav) {
     ) { padding ->
         LazyColumn(
             Modifier.fillMaxSize().padding(padding),
-            contentPadding = PaddingValues(start = 16.dp, end = 16.dp, bottom = 32.dp),
+            contentPadding = PaddingValues(start = 16.dp, end = 16.dp, bottom = 96.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             item {
@@ -169,12 +179,6 @@ fun PontoTela(id: Long, nav: Nav) {
                         "${revisoes.size} revisões no total",
                         color = MaterialTheme.colorScheme.onPrimaryContainer, style = MaterialTheme.typography.bodySmall,
                     )
-                    Spacer(Modifier.height(10.dp))
-                    Button(onClick = { escolherAvaliacao = true }, modifier = Modifier.fillMaxWidth()) {
-                        Icon(Icons.Filled.Check, null)
-                        Spacer(Modifier.width(8.dp))
-                        Text("Marcar como revisado")
-                    }
                 }
             }
             if (atencao) item {
@@ -189,64 +193,6 @@ fun PontoTela(id: Long, nav: Nav) {
             }
             if (p.oQueCai.isNotBlank()) item { Bloco("O que a FCC cobra", p.oQueCai, MaterialTheme.colorScheme.surfaceContainerLowest) }
             if (p.atencao.isNotBlank()) item { Bloco("Atenção: vigência e pegadinhas", p.atencao, cores.atencaoFundo, cores.noAtencao) }
-            item {
-                Column(
-                    Modifier.fillMaxWidth().clip(RoundedCornerShape(18.dp))
-                        .background(MaterialTheme.colorScheme.surfaceContainerLowest).padding(14.dp)
-                ) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text("Texto da lei", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold, modifier = Modifier.weight(1f))
-                        IconButton(onClick = { editandoTexto = true }) { Icon(Icons.Filled.Edit, "Editar texto da lei") }
-                    }
-                    if (p.textoLei.isBlank()) {
-                        Text(
-                            "O texto ainda não foi adicionado. Cole aqui o texto oficial (toque no lápis) ou consulte a fonte:",
-                            style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    } else {
-                        val pars = remember(p.textoLei) { paragrafosLei(p.textoLei) }
-                        // prévia: primeiros parágrafos (até ~700 caracteres)
-                        var soma = 0
-                        val previa = pars.takeWhile { soma += it.length; soma - it.length < 700 }.take(6)
-                        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) { previa.forEach { ParagrafoLei(it) } }
-                        Spacer(Modifier.height(10.dp))
-                        Button(onClick = { nav.texto(p.id) }, modifier = Modifier.fillMaxWidth()) {
-                            Text(if (previa.size < pars.size) "Ler texto completo (${pars.size} parágrafos)" else "Abrir no leitor")
-                        }
-                    }
-                    Spacer(Modifier.height(6.dp))
-                    FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        fontesOficiais(p.titulo).forEach { (rotulo, url) ->
-                            AssistChip(onClick = {
-                                runCatching { contexto.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url))) }
-                            }, label = { Text(rotulo) })
-                        }
-                    }
-                }
-            }
-            if (p.ondeCaiu.isNotBlank() || p.outrasProvas.isNotBlank()) item {
-                Column(
-                    Modifier.fillMaxWidth().clip(RoundedCornerShape(18.dp))
-                        .background(MaterialTheme.colorScheme.surfaceContainerLowest)
-                        .clickable { ondeAberto = !ondeAberto }.padding(14.dp).animateContentSize()
-                ) {
-                    Row {
-                        Text("Onde caiu", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold, modifier = Modifier.weight(1f))
-                        Icon(if (ondeAberto) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown, null)
-                    }
-                    if (ondeAberto) {
-                        if (p.ondeCaiu.isNotBlank()) {
-                            Spacer(Modifier.height(6.dp))
-                            Text(p.ondeCaiu.replace("; ", "\n"), style = MaterialTheme.typography.bodySmall)
-                        }
-                        if (p.outrasProvas.isNotBlank()) {
-                            Spacer(Modifier.height(10.dp))
-                            Text("TRF-3, TRF-4 e TJ-CE (fora da contagem)", style = MaterialTheme.typography.labelMedium, fontWeight = FontWeight.SemiBold)
-                            Text(p.outrasProvas, style = MaterialTheme.typography.bodySmall)
-                        }
-                    }
-                }
-            }
             item {
                 TituloSecao("Anotações (${notas.size})") {
                     TextButton(onClick = { novaNota = true }) {
@@ -272,6 +218,55 @@ fun PontoTela(id: Long, nav: Nav) {
                         )
                         IconButton(onClick = { editandoNota = n }) { Icon(Icons.Filled.Edit, "Editar anotação", Modifier.size(20.dp)) }
                         IconButton(onClick = { notaApagar = n }) { Icon(Icons.Filled.Delete, "Apagar anotação", Modifier.size(20.dp)) }
+                    }
+                }
+            }
+            // ---- Texto da lei, na íntegra
+            item {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text("Texto da lei", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold, modifier = Modifier.weight(1f))
+                    if (p.textoLei.isNotBlank()) IconButton(onClick = { nav.texto(p.id) }) { Icon(Icons.Filled.Search, "Buscar no texto") }
+                    IconButton(onClick = { editandoTexto = true }) { Icon(Icons.Filled.Edit, "Editar texto da lei") }
+                }
+                if (p.textoLei.isBlank()) {
+                    Text(
+                        "O texto ainda não foi adicionado. Cole aqui o texto oficial (toque no lápis) ou consulte a fonte abaixo.",
+                        style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+            items(paragrafos.size, key = { "t$it" }) { i ->
+                ParagrafoLei(paragrafos[i], modifier = Modifier.fillMaxWidth())
+            }
+            item {
+                FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    fontesOficiais(p.titulo).forEach { (rotulo, url) ->
+                        AssistChip(onClick = {
+                            runCatching { contexto.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url))) }
+                        }, label = { Text(rotulo) })
+                    }
+                }
+            }
+            if (p.ondeCaiu.isNotBlank() || p.outrasProvas.isNotBlank()) item {
+                Column(
+                    Modifier.fillMaxWidth().clip(RoundedCornerShape(18.dp))
+                        .background(MaterialTheme.colorScheme.surfaceContainerLowest)
+                        .clickable { ondeAberto = !ondeAberto }.padding(14.dp).animateContentSize()
+                ) {
+                    Row {
+                        Text("Onde caiu", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold, modifier = Modifier.weight(1f))
+                        Icon(if (ondeAberto) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown, null)
+                    }
+                    if (ondeAberto) {
+                        if (p.ondeCaiu.isNotBlank()) {
+                            Spacer(Modifier.height(6.dp))
+                            Text(p.ondeCaiu.replace("; ", "\n"), style = MaterialTheme.typography.bodySmall)
+                        }
+                        if (p.outrasProvas.isNotBlank()) {
+                            Spacer(Modifier.height(10.dp))
+                            Text("TRF-3, TRF-4 e TJ-CE (fora da contagem)", style = MaterialTheme.typography.labelMedium, fontWeight = FontWeight.SemiBold)
+                            Text(p.outrasProvas, style = MaterialTheme.typography.bodySmall)
+                        }
                     }
                 }
             }

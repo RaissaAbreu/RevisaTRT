@@ -4,15 +4,18 @@ App Android pessoal de revisão para o concurso **TRT-RS (4ª Região) – Anali
 
 <p>
 <img src="docs/capturas/01-inicio.png" width="200">
-<img src="docs/capturas/03-disciplina.png" width="200">
 <img src="docs/capturas/04-ponto.png" width="200">
+<img src="docs/capturas/04b-ponto-texto-integral.png" width="200">
+<img src="docs/capturas/04c-ponto-sumulas.png" width="200">
+<img src="docs/capturas/13-leitor-busca.png" width="200">
 <img src="docs/capturas/11-disciplina-escuro.png" width="200">
 </p>
 
 ## Funcionalidades
 
 - **Disciplinas do edital** (Conhecimentos Gerais e Específicos), com o conteúdo programático.
-- **Pontos por ordem de importância** (Altíssima → Não caiu), com "O que a FCC cobra", pegadinhas, vigência, onde caiu e o texto da lei.
+- **Pontos por ordem de importância** (Altíssima → Não caiu), com "O que a FCC cobra", pegadinhas, vigência e onde caiu.
+- **Texto da lei na íntegra** em cada ponto: artigos, incisos, parágrafos, súmulas e OJs, com busca dentro do texto.
 - **Check de revisão** com avaliação Fácil / Médio / Difícil e **histórico completo**. Pontos marcados como difíceis viram **pontos de atenção**.
 - **Sugestões de revisão**: pontos e disciplinas sem revisão há 7, 15 e 30 dias, e nunca revisados.
 - **Anotações** por ponto (várias, com editar e apagar).

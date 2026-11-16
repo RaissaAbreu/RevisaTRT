@@ -81,7 +81,7 @@ private fun destacar(texto: String, termo: String, fundo: Color, inicioNegrito: 
 }
 
 /** Tamanho do rótulo de dispositivo no início do parágrafo ("Art. 5º", "§ 1º", "I –"), para deixar em negrito. */
-private val rotulo = Regex("^(Art\\.\\s*\\d+[º°A-Z-]*\\.?|§\\s*\\d+º?|Parágrafo único\\.?|[IVXLC]+\\s*[–-])")
+private val rotulo = Regex("^(Art\\.\\s*[\\d.]*\\d(?:-[A-Z])?[º°]?\\.?|§\\s*\\d+º?|Parágrafo único\\.?|[IVXLC]+\\s*[–-])")
 
 @Composable
 fun ParagrafoLei(p: String, termo: String = "", modifier: Modifier = Modifier) {

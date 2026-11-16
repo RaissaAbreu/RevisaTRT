@@ -2,6 +2,9 @@ package app.revisatrt
 
 import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.hasText
+import androidx.compose.ui.test.hasScrollToNodeAction
+import androidx.compose.ui.test.performScrollToNode
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -72,6 +75,9 @@ class CapturasTest {
         fun esperar(texto: String) = regra.waitUntil(10_000) {
             regra.onAllNodes(hasText(texto, substring = true)).fetchSemanticsNodes().isNotEmpty()
         }
+        fun rolarAte(texto: String) {
+            regra.onNode(hasScrollToNodeAction()).performScrollToNode(hasText(texto, substring = true))
+        }
         fun foto(nome: String) { regra.waitForIdle(); captureScreenRoboImage("../docs/capturas/$nome.png") }
 
         esperar("Direito Processual do Trabalho")
@@ -88,9 +94,13 @@ class CapturasTest {
         foto("03-disciplina")
 
         regra.onNodeWithText("CLT, arts. 129 a 145", substring = true).performClick()
-        esperar("Marcar como revisado")
+        esperar("O que a FCC cobra")
         foto("04-ponto")
-        regra.onNodeWithText("Marcar como revisado").performClick()
+        rolarAte("Art. 130")
+        foto("04b-ponto-texto-integral")
+        rolarAte("SUM-7")
+        foto("04c-ponto-sumulas")
+        regra.onNodeWithText("Revisado", useUnmergedTree = true).performClick()
         esperar("Como foi a revisão?")
         foto("05-avaliacao")
         regra.onNodeWithText("Cancelar").performClick()
@@ -118,10 +128,10 @@ class CapturasTest {
         regra.onNodeWithText("terceirização").performTextReplacement("San José")
         esperar("Convenção Americana")
         regra.onAllNodesWithText("Convenção Americana sobre Direitos Humanos (Pacto", substring = true)[0].performScrollTo().performClick()
-        esperar("Ler texto completo")
-        regra.onNodeWithText("Ler texto completo", substring = true).performScrollTo()
+        esperar("Texto da lei")
+        rolarAte("Artigo 1")
         foto("12-ponto-texto-lei")
-        regra.onNodeWithText("Ler texto completo", substring = true).performClick()
+        regra.onNodeWithContentDescription("Buscar no texto").performClick()
         esperar("Buscar no texto")
         regra.onNodeWithText("Buscar no texto", substring = true).performTextInput("prisão")
         regra.waitUntil(5_000) { regra.onAllNodes(hasText("1/", substring = true)).fetchSemanticsNodes().isNotEmpty() }
