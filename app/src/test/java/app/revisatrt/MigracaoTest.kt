@@ -58,8 +58,8 @@ class MigracaoTest {
 
             val pontos = repo.dao.todosPontos()
             val porChave = pontos.filter { it.chave != null }.associateBy { it.chave }
-            assertEquals(269 + 1, pontos.size) // base nova + ponto criado no app
-            assertEquals(7, repo.dao.disciplinasAgora().count { it.totalCadernos > 0 })
+            assertEquals(274 + 1, pontos.size) // base nova + ponto criado no app
+            assertEquals(8, repo.dao.disciplinasAgora().count { it.totalCadernos > 0 })
 
             val p1 = porChave["trabalho-1"]!!
             assertEquals(1L, p1.id)

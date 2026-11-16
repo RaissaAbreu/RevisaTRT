@@ -16,7 +16,7 @@ import unicodedata
 
 import openpyxl
 
-SEED_VERSION = 3
+SEED_VERSION = 4
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DADOS = os.path.join(RAIZ, "dados")
@@ -101,6 +101,8 @@ def pontos_da_aba(ws, chave_disc):
         titulo = texto(bruto.get("titulo"))
         if not titulo:
             continue
+        if norm(bruto.get("importancia")) == "fora do edital":
+            continue  # tema de outros editais: não entra nas revisões
         numero = inteiro(bruto.get("numero")) or ordem
         imp = IMPORTANCIA.get(norm(bruto.get("importancia")), 2)
         pontos.append({
@@ -121,6 +123,28 @@ def pontos_da_aba(ws, chave_disc):
             "textoLei": texto(bruto.get("textoLei")),
         })
     return pontos, totais
+
+
+def pontos_do_vade_mecum(chave_disc):
+    """Pontos de uma matéria sem aba na planilha, montados com o quadro do PDF (dados/quadros.json)."""
+    caminho = os.path.join(DADOS, "quadros.json")
+    if not os.path.exists(caminho):
+        return []
+    with open(caminho, encoding="utf-8") as f:
+        quadros = json.load(f)
+    pontos = []
+    for q in sorted((q for q in quadros.values() if q["disciplina"] == chave_disc), key=lambda q: q["numero"]):
+        inc = norm(q["incidencia"])
+        imp = 0 if "nao caiu" in inc else next((v for k, v in IMPORTANCIA.items() if inc.endswith(k)), 2)
+        m = re.search(r"(\d+)\s+de\s+(\d+)", q["caiuEm"])
+        pontos.append({
+            "chave": f"{chave_disc}-{q['numero']}", "disciplina": chave_disc, "ordem": q["numero"],
+            "titulo": q["titulo"], "oQueCai": "", "importancia": imp,
+            "cadernos": int(m.group(1)) if m else 0, "questoes": 0, "areaJudiciaria": 0, "oficialJustica": 0,
+            "vigencia": q["vigencia"], "atencao": q["atencao"], "ondeCaiu": "", "outrasProvas": "", "textoLei": "",
+            "_total": int(m.group(2)) if m else 0,
+        })
+    return pontos
 
 
 def main():
@@ -148,7 +172,13 @@ def main():
             disc["totalOJ"] = totais.get("oficialJustica", 0)
             print(f"{d['nome']}: {len(novos)} pontos (amostra: {totais})")
         else:
-            print(f"{d['nome']}: sem planilha ainda")
+            novos = pontos_do_vade_mecum(d["chave"])
+            if novos:
+                pontos.extend(novos)
+                disc["totalCadernos"] = max((p.pop("_total") for p in novos), default=0)
+                print(f"{d['nome']}: {len(novos)} pontos criados a partir do vade mecum (sem aba na planilha)")
+            else:
+                print(f"{d['nome']}: sem planilha ainda")
         disciplinas.append(disc)
     caminho_textos = os.path.join(DADOS, "textos.json")
     if os.path.exists(caminho_textos):

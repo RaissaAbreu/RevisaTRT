@@ -1,0 +1,2324 @@
+{
+ "administrativo-1": {
+  "disciplina": "administrativo",
+  "numero": 1,
+  "titulo": "Lei 9.784/1999 (processo administrativo federal)",
+  "incidencia": "Incidência Altíssima",
+  "caiuEm": "13 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Decisão coordenada entrou pela Lei 14.210/2021 e já caiu em TRT-17, TRT-14 e TRT-18 (e no TRF- 3). Não se aplica a processos de licitação, sancionadores ou entre Poderes diferentes."
+ },
+ "administrativo-2": {
+  "disciplina": "administrativo",
+  "numero": 2,
+  "titulo": "Lei 8.429/1992 com a redação da Lei 14.230/2021 (improbidade administrativa)",
+  "incidencia": "Incidência Altíssima",
+  "caiuEm": "11 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "STF, Tema 1199 (2022): a nova lei não retroage para condenações transitadas, e o novo prazo prescricional não retroage. STF devolveu a legitimidade aos entes públicos lesados (ADIs 7042 e 7043). Outros pontos ainda são questionados no STF (ADI 7236): confira antes da prova."
+ },
+ "administrativo-3": {
+  "disciplina": "administrativo",
+  "numero": 3,
+  "titulo": "Lei 8.112/1990, arts. 116 a 182 (deveres, proibições, penalidades e processo disciplinar)",
+  "incidencia": "Incidência Altíssima",
+  "caiuEm": "9 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "administrativo-4": {
+  "disciplina": "administrativo",
+  "numero": 4,
+  "titulo": "Lei 8.987/1995 (concessão e permissão de serviço público)",
+  "incidencia": "Incidência Altíssima",
+  "caiuEm": "9 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "STF, Tema 130: a concessionária responde objetivamente também perante não usuários do serviço."
+ },
+ "administrativo-5": {
+  "disciplina": "administrativo",
+  "numero": 5,
+  "titulo": "Lei 8.112/1990, arts. 40 a 115 (vencimento, vantagens, férias, licenças e afastamentos)",
+  "incidencia": "Incidência Altíssima",
+  "caiuEm": "8 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "administrativo-6": {
+  "disciplina": "administrativo",
+  "numero": 6,
+  "titulo": "Lei 14.133/2021 (licitação: agentes, modalidades, participação, julgamento e controle)",
+  "incidencia": "Incidência Altíssima",
+  "caiuEm": "8 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "A Lei 8.666/1993 foi revogada em 30/12/2023: só vale a Lei 14.133/2021. Os valores da lei são atualizados todo ano por decreto."
+ },
+ "administrativo-7": {
+  "disciplina": "administrativo",
+  "numero": 7,
+  "titulo": "Lei 11.079/2004 (parcerias público-privadas)",
+  "incidencia": "Incidência Altíssima",
+  "caiuEm": "8 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "O valor mínimo passou de R$ 20 milhões para R$ 10 milhões com a Lei 13.529/2017."
+ },
+ "administrativo-8": {
+  "disciplina": "administrativo",
+  "numero": 8,
+  "titulo": "Atos administrativos: elementos, atributos, extinção e invalidação (doutrina, Lei 9.784/1999 e Súmula 473 do STF)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "7 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "administrativo-9": {
+  "disciplina": "administrativo",
+  "numero": 9,
+  "titulo": "CF, art. 37, §6º (responsabilidade civil do Estado)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "6 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "STF, Tema 940: a vítima processa o Estado ou a concessionária, não o agente (dupla garantia)."
+ },
+ "administrativo-10": {
+  "disciplina": "administrativo",
+  "numero": 10,
+  "titulo": "Lei 13.869/2019 (abuso de autoridade)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "6 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "administrativo-11": {
+  "disciplina": "administrativo",
+  "numero": 11,
+  "titulo": "Lei 12.527/2011 (acesso à informação)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "5 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "administrativo-12": {
+  "disciplina": "administrativo",
+  "numero": 12,
+  "titulo": "Organização administrativa: administração direta e indireta (DL 200/1967 e CF, art. 37, XIX)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "5 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "STF, Tema 877: conselhos de fiscalização profissional não pagam por precatório."
+ },
+ "administrativo-13": {
+  "disciplina": "administrativo",
+  "numero": 13,
+  "titulo": "CF, arts. 37 a 41 (teto, regime jurídico único, reintegração e greve)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "5 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "STF, ADI 2135 (2024): o regime jurídico único deixou de ser obrigatório, com efeitos só para o futuro (caiu no TRT-15/2025). Greve: desconto dos dias parados (Tema 531) e justiça comum para greve de celetistas da administração direta (Tema 544)."
+ },
+ "administrativo-14": {
+  "disciplina": "administrativo",
+  "numero": 14,
+  "titulo": "CC, arts. 98 a 103, e CF, art. 20 (bens públicos)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "5 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "administrativo-15": {
+  "disciplina": "administrativo",
+  "numero": 15,
+  "titulo": "Leis 9.637/1998 (OS), 9.790/1999 (OSCIP), 13.019/2014 (MROSC) e serviços sociais autônomos",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "5 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "administrativo-16": {
+  "disciplina": "administrativo",
+  "numero": 16,
+  "titulo": "Lei 14.133/2021, arts. 89 a 154 (contratos: duração, execução, responsabilidade, extinção e arbitragem)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "administrativo-17": {
+  "disciplina": "administrativo",
+  "numero": 17,
+  "titulo": "Agentes públicos e empregados públicos (Lei 9.962/2000 e jurisprudência do STF)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "administrativo-18": {
+  "disciplina": "administrativo",
+  "numero": 18,
+  "titulo": "Poderes administrativos (hierárquico, disciplinar, regulamentar e de polícia)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "STF, Tema 532 (2020): consentimento, fiscalização e sanção podem ser delegados a estatal de capital majoritariamente público que preste serviço público em regime não concorrencial; a ordem de polícia não."
+ },
+ "administrativo-19": {
+  "disciplina": "administrativo",
+  "numero": 19,
+  "titulo": "LINDB, arts. 20 a 30 (segurança jurídica no direito público, Lei 13.655/2018)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "administrativo-20": {
+  "disciplina": "administrativo",
+  "numero": 20,
+  "titulo": "Lei 11.107/2005 (consórcios públicos)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "administrativo-21": {
+  "disciplina": "administrativo",
+  "numero": 21,
+  "titulo": "Lei 8.112/1990, arts. 5º a 39 (provimento, vacância e movimentação)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "administrativo-22": {
+  "disciplina": "administrativo",
+  "numero": 22,
+  "titulo": "Decreto-Lei 3.365/1941 e CF, art. 5º, XXIV (desapropriação)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "O art. 3º do DL 3.365 foi ampliado pela Lei 14.273/2021 (consórcios públicos, delegatárias e contratados para obras). Requisição está na aba Constitucional (art. 5º, XXV)."
+ },
+ "administrativo-23": {
+  "disciplina": "administrativo",
+  "numero": 23,
+  "titulo": "Controle da Administração (interno, externo, Tribunais de Contas e judicial)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "TRF-3/2024 e TJ-CE/2026 também cobraram."
+ },
+ "administrativo-24": {
+  "disciplina": "administrativo",
+  "numero": 24,
+  "titulo": "Lei 13.460/2017 (direitos dos usuários de serviços públicos)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "administrativo-25": {
+  "disciplina": "administrativo",
+  "numero": 25,
+  "titulo": "Lei 14.133/2021, arts. 72 a 75 (contratação direta: dispensa e inexigibilidade)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Valores de dispensa atualizados todo ano por decreto."
+ },
+ "administrativo-26": {
+  "disciplina": "administrativo",
+  "numero": 26,
+  "titulo": "CF, art. 37 (cargos públicos e acumulação)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "administrativo-27": {
+  "disciplina": "administrativo",
+  "numero": 27,
+  "titulo": "CF, art. 40 (aposentadoria do servidor)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Redação da EC 103/2019; Estados e Municípios fixam suas próprias idades."
+ },
+ "administrativo-28": {
+  "disciplina": "administrativo",
+  "numero": 28,
+  "titulo": "Lei 13.709/2018 (LGPD: dados pessoais sensíveis)",
+  "incidencia": "Não caiu na amostra",
+  "caiuEm": "0 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Só caiu no TJ-CE/2026, fora da contagem."
+ },
+ "administrativo-29": {
+  "disciplina": "administrativo",
+  "numero": 29,
+  "titulo": "Lei 8.666/1993 (antiga Lei de Licitações)",
+  "incidencia": "Não caiu na amostra",
+  "caiuEm": "0 de 25 cadernos",
+  "vigencia": "Revogado",
+  "atencao": "Revogada em 30/12/2023. Questões com regras da 8.666 (convite, tomada de preços) estão desatualizadas."
+ },
+ "civil-1": {
+  "disciplina": "civil",
+  "numero": 1,
+  "titulo": "CC, arts. 1.639 a 1.688 e 1.725 (regime de bens, pacto antenupcial e união estável)",
+  "incidencia": "Incidência Altíssima",
+  "caiuEm": "10 de 24 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Separação obrigatória é para maiores de 70 anos (não 60). STF, Tema 1236 (2024): ela pode ser afastada por escritura pública. Mudança de regime no casamento continua judicial; o Provimento CNJ 141/2023 só permite mudança em cartório para a união estável."
+ },
+ "civil-2": {
+  "disciplina": "civil",
+  "numero": 2,
+  "titulo": "CC, arts. 1.784 a 1.856 e 1.857 a 1.990 (sucessão em geral, legítima e testamentária) + CPC, art. 48 (foro do inventário)",
+  "incidencia": "Incidência Altíssima",
+  "caiuEm": "9 de 24 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "O art. 1.790 (sucessão do companheiro) foi declarado inconstitucional pelo STF (Temas 498 e 809): o companheiro sucede como o cônjuge. Separação obrigatória e comunhão universal excluem a concorrência do cônjuge com descendentes; na separação convencional ele concorre."
+ },
+ "civil-3": {
+  "disciplina": "civil",
+  "numero": 3,
+  "titulo": "CC, arts. 121 a 137 (condição, termo e encargo)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "6 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "O art. 106 caiu em TRT-21/2023 e TRT-15/2025 com o mesmo caso: o negócio é válido se a impossibilidade cessar antes de realizada a condição."
+ },
+ "civil-4": {
+  "disciplina": "civil",
+  "numero": 4,
+  "titulo": "CC, arts. 166 a 184 (nulidade e anulabilidade)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "6 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "TRF-4/2025 cobrou simulação: nula, sem prazo de decadência (art. 169)."
+ },
+ "civil-5": {
+  "disciplina": "civil",
+  "numero": 5,
+  "titulo": "CC, arts. 1º a 5º (personalidade e capacidade)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "6 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Redação do Estatuto da Pessoa com Deficiência (Lei 13.146/2015). Alternativas com \"enfermidade mental = absolutamente incapaz\" seguem a regra antiga e estão erradas."
+ },
+ "civil-6": {
+  "disciplina": "civil",
+  "numero": 6,
+  "titulo": "CC, arts. 233 a 388 (modalidades, transmissão, pagamento e extinção das obrigações)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "5 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "TJ-CE/2026 também cobrou imputação do pagamento."
+ },
+ "civil-7": {
+  "disciplina": "civil",
+  "numero": 7,
+  "titulo": "CC, arts. 1.228, 1.267, 1.275 e 1.359 (propriedade: natureza, aquisição de móvel pela tradição, perda e propriedade resolúvel)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "5 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Três provas (TRT-14, TRT-18 e TRT-5) perguntaram a lista do art. 1.275 quase do mesmo jeito: renúncia, abandono e perecimento estão todos lá."
+ },
+ "civil-8": {
+  "disciplina": "civil",
+  "numero": 8,
+  "titulo": "CC, art. 1.225 (rol dos direitos reais) e arts. 1.226 e 1.227 (tradição e registro)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "5 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Pegadinhas frequentes: fiança, herança, contratos, posse, direitos de vizinhança e direitos da personalidade NÃO estão no rol. Laje entrou pela Lei 13.465/2017."
+ },
+ "civil-9": {
+  "disciplina": "civil",
+  "numero": 9,
+  "titulo": "CC, arts. 79 a 103 (classificação dos bens e bens públicos)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "5 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "civil-10": {
+  "disciplina": "civil",
+  "numero": 10,
+  "titulo": "CC, arts. 11 a 21 (direitos da personalidade)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "5 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "civil-11": {
+  "disciplina": "civil",
+  "numero": 11,
+  "titulo": "CC, arts. 1.419 a 1.510 (penhor, hipoteca e anticrese; vedação do pacto comissário)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "4 de 24 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Lei 14.711/2023 (Marco Legal das Garantias) mudou regras da hipoteca (como o art. 1.477) e criou a execução extrajudicial de crédito com garantia hipotecária. O pacto comissário é vedado, mas a dação do bem após o vencimento é permitida (art. 1.428, parágrafo único)."
+ },
+ "civil-12": {
+  "disciplina": "civil",
+  "numero": 12,
+  "titulo": "CC, arts. 70 a 78 (domicílio)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "4 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Questões de caso com cidades. Atenção: cada estabelecimento é domicílio para os atos nele praticados."
+ },
+ "civil-13": {
+  "disciplina": "civil",
+  "numero": 13,
+  "titulo": "CC, arts. 40 a 52 (pessoas jurídicas)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "4 de 24 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Empreendimentos de economia solidária entraram no art. 44 pela Lei 15.068/2024 (Lei Paul Singer) e já caíram no TRT-2/2025."
+ },
+ "civil-14": {
+  "disciplina": "civil",
+  "numero": 14,
+  "titulo": "CC, arts. 441 a 457 (vícios redibitórios e evicção)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "4 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "civil-15": {
+  "disciplina": "civil",
+  "numero": 15,
+  "titulo": "CC, arts. 189 a 211 (prescrição e decadência)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "3 de 24 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "O art. 206, §1º, II (pretensão do segurado contra o segurador) foi revogado pela Lei 15.040/2024, em vigor desde 10/12/2025. Fora da contagem: TJ-CE/2026 cobrou alimentos (2 anos e não corre durante o poder familiar) e TRF-3/2024 cobrou dívida líquida (5 anos)."
+ },
+ "civil-16": {
+  "disciplina": "civil",
+  "numero": 16,
+  "titulo": "CC, arts. 138 a 165 (defeitos do negócio jurídico)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "3 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "civil-17": {
+  "disciplina": "civil",
+  "numero": 17,
+  "titulo": "CC, arts. 927 a 943 (responsabilidade civil)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "3 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "civil-18": {
+  "disciplina": "civil",
+  "numero": 18,
+  "titulo": "CC, arts. 421 a 480 (teoria geral dos contratos)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "3 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Arts. 421 e 421-A com redação da Lei 13.874/2019 (Liberdade Econômica)."
+ },
+ "civil-19": {
+  "disciplina": "civil",
+  "numero": 19,
+  "titulo": "CC, arts. 1.361 a 1.368-B (propriedade fiduciária de coisa móvel infungível)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "No CC é só coisa móvel infungível; imóvel e bens fungíveis estão em leis especiais (Lei 9.514/1997 e Lei 4.728/1965). TRF-4/2025 cobrou o mesmo tema."
+ },
+ "civil-20": {
+  "disciplina": "civil",
+  "numero": 20,
+  "titulo": "CC, arts. 481 a 564 (compra e venda e doação)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "TRF-3/2024 cobrou compra e venda com preço fixado por uma só parte (art. 489)."
+ },
+ "civil-21": {
+  "disciplina": "civil",
+  "numero": 21,
+  "titulo": "CC, art. 50 (desconsideração da personalidade jurídica)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Redação da Lei 13.874/2019. TRF-3/2024 cobrou um caso de desconsideração. No processo, ver o IDPJ na aba Processo Civil."
+ },
+ "civil-22": {
+  "disciplina": "civil",
+  "numero": 22,
+  "titulo": "CC, arts. 1.548 a 1.564 e 1.630 a 1.638 (invalidade do casamento e poder familiar)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 24 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "STF, Tema 1053 (2023): depois da EC 66/2010, a separação judicial não é requisito do divórcio nem subsiste como figura autônoma. Caiu no TJ-CE/2026."
+ },
+ "civil-23": {
+  "disciplina": "civil",
+  "numero": 23,
+  "titulo": "CC, arts. 1.196 a 1.224 (posse: classificação, efeitos e defesa)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "civil-24": {
+  "disciplina": "civil",
+  "numero": 24,
+  "titulo": "CC, arts. 1.390 a 1.416 (usufruto, uso e habitação)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "civil-25": {
+  "disciplina": "civil",
+  "numero": 25,
+  "titulo": "CC, arts. 6º a 8º e 22 a 39 (ausência, morte presumida e comoriência)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "civil-26": {
+  "disciplina": "civil",
+  "numero": 26,
+  "titulo": "CC, arts. 104 a 114 (fatos e negócios jurídicos: elementos e silêncio)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "civil-27": {
+  "disciplina": "civil",
+  "numero": 27,
+  "titulo": "LINDB (Decreto-Lei 4.657/1942), arts. 1º a 6º",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "civil-28": {
+  "disciplina": "civil",
+  "numero": 28,
+  "titulo": "CC, arts. 1.711 a 1.722 e Lei 8.009/1990 (bem de família)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "civil-29": {
+  "disciplina": "civil",
+  "numero": 29,
+  "titulo": "CC, arts. 579 a 592 (comodato e mútuo) e 840 a 850 (transação)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "civil-30": {
+  "disciplina": "civil",
+  "numero": 30,
+  "titulo": "Lei 11.101/2005, arts. 83, 102 e 103 (falência)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Redação da Lei 14.112/2020."
+ },
+ "civil-31": {
+  "disciplina": "civil",
+  "numero": 31,
+  "titulo": "CC, arts. 1.238 a 1.244 e CF, art. 183 (usucapião)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "TJ-CE/2026 também cobrou o tema (usucapião especial urbana: 200 m², 8 anos, sem outro imóvel)."
+ },
+ "civil-32": {
+  "disciplina": "civil",
+  "numero": 32,
+  "titulo": "CC, arts. 1.314 a 1.326 (condomínio voluntário) e 1.358-B a 1.358-U (multipropriedade)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Multipropriedade (Lei 13.777/2018) caiu no TJ-CE/2026: fração mínima de 7 dias, imóvel indivisível, instituição por ato entre vivos ou testamento."
+ },
+ "civil-33": {
+  "disciplina": "civil",
+  "numero": 33,
+  "titulo": "CC, arts. 653 a 692 (mandato)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "TRF-3/2024 também cobrou mandato."
+ },
+ "civil-34": {
+  "disciplina": "civil",
+  "numero": 34,
+  "titulo": "CC, arts. 610 a 626 (empreitada)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "TRF-3/2024 cobrou o §2º do art. 610."
+ },
+ "civil-35": {
+  "disciplina": "civil",
+  "numero": 35,
+  "titulo": "CC, arts. 1.510-A a 1.510-E (direito real de laje)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Incluído pela Lei 13.465/2017."
+ },
+ "civil-36": {
+  "disciplina": "civil",
+  "numero": 36,
+  "titulo": "CC, arts. 389, 395 e 406 (perdas e danos, correção e juros legais)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Redação da Lei 14.905/2024, em vigor desde 30/08/2024. A questão do TRT-15/2025 cobrou exatamente essa mudança; alternativa com \"1% ao mês\" está desatualizada."
+ },
+ "civil-37": {
+  "disciplina": "civil",
+  "numero": 37,
+  "titulo": "CC, arts. 757 a 802 (contrato de seguro) – REVOGADOS",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 24 cadernos",
+  "vigencia": "Revogado",
+  "atencao": "Todos os arts. 757 a 802 foram revogados pela Lei 15.040/2024 (Marco Legal dos Seguros), em vigor desde 10/12/2025. O TRT-6/2025 avisou que cobrava a \"normativa ainda vigente\". Em provas a partir de 2026, estude a Lei 15.040/2024."
+ },
+ "civil-38": {
+  "disciplina": "civil",
+  "numero": 38,
+  "titulo": "CC, arts. 1.155 a 1.168 (nome empresarial)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "civil-39": {
+  "disciplina": "civil",
+  "numero": 39,
+  "titulo": "CC, arts. 955 a 965 (preferências e privilégios creditórios)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "civil-40": {
+  "disciplina": "civil",
+  "numero": 40,
+  "titulo": "CC, arts. 876 a 883 (pagamento indevido)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "civil-42": {
+  "disciplina": "civil",
+  "numero": 42,
+  "titulo": "Lei 15.040/2024 (Marco Legal dos Seguros)",
+  "incidencia": "Não caiu na amostra",
+  "caiuEm": "0 de 24 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Em vigor desde 10/12/2025. Não caiu em nenhum caderno, mas é o texto que vale para o contrato de seguro em provas de 2026 em diante."
+ },
+ "constitucional-1": {
+  "disciplina": "constitucional",
+  "numero": 1,
+  "titulo": "CF, art. 12 (nacionalidade, cargos privativos de brasileiro nato e perda) e art. 5º, LI (extradição)",
+  "incidencia": "Incidência Altíssima",
+  "caiuEm": "18 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "EC 131/2023 mudou o §4º do art. 12: só perde a nacionalidade quem tiver a naturalização cancelada (fraude ou atentado contra a ordem constitucional) ou fizer pedido expresso; \"adquirir outra nacionalidade\" deixou de ser causa de perda. Já caiu com a nova redação no TRT-11/2024 e no TRT-6/2025."
+ },
+ "constitucional-2": {
+  "disciplina": "constitucional",
+  "numero": 2,
+  "titulo": "CF, arts. 111 a 116 (Justiça do Trabalho: órgãos, TST, TRTs, competência e CSJT) e art. 94 (quinto constitucional)",
+  "incidencia": "Incidência Altíssima",
+  "caiuEm": "17 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "EC 122/2022 elevou a idade máxima de 65 para 70 anos para ingresso no TST, TRT e demais tribunais. O STF exclui da Justiça do Trabalho as causas de servidores estatutários (ADI 3395). Súmula Vinculante 53: execução de ofício só das contribuições das sentenças condenatórias e acordos homologados."
+ },
+ "constitucional-3": {
+  "disciplina": "constitucional",
+  "numero": 3,
+  "titulo": "CF, arts. 14 a 17 (direitos políticos, elegibilidade, inelegibilidades e partidos)",
+  "incidencia": "Incidência Altíssima",
+  "caiuEm": "16 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "EC 111/2021 incluiu no art. 17, §6º, a perda do mandato de deputado e vereador que se desliga do partido, salvo anuência do partido ou justa causa (TJ-CE/2026 cobrou)."
+ },
+ "constitucional-4": {
+  "disciplina": "constitucional",
+  "numero": 4,
+  "titulo": "CF, arts. 6º a 11 (direitos sociais, dos trabalhadores e sindicais)",
+  "incidencia": "Incidência Altíssima",
+  "caiuEm": "11 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Trabalhador rural e urbano têm os mesmos direitos do art. 7º."
+ },
+ "constitucional-5": {
+  "disciplina": "constitucional",
+  "numero": 5,
+  "titulo": "CF, art. 5º (direitos e deveres individuais e coletivos)",
+  "incidencia": "Incidência Altíssima",
+  "caiuEm": "10 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "constitucional-6": {
+  "disciplina": "constitucional",
+  "numero": 6,
+  "titulo": "CF, arts. 59 a 69 (processo legislativo: emendas, leis, medidas provisórias e leis delegadas)",
+  "incidencia": "Incidência Altíssima",
+  "caiuEm": "9 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "constitucional-7": {
+  "disciplina": "constitucional",
+  "numero": 7,
+  "titulo": "CF, arts. 21 a 24 e 30 (competências da União, comum, concorrente e dos Municípios)",
+  "incidencia": "Incidência Altíssima",
+  "caiuEm": "9 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "O STF costuma cobrar lei estadual que invade competência da União (TRT-5/2022: trânsito; TRT- 11/2024: aprendizes)."
+ },
+ "constitucional-8": {
+  "disciplina": "constitucional",
+  "numero": 8,
+  "titulo": "CF, arts. 102 e 103 (ADI, ADC, ADO e ADPF: legitimados e efeitos)",
+  "incidencia": "Incidência Altíssima",
+  "caiuEm": "8 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Conselho Seccional da OAB e Prefeito não estão no rol do art. 103."
+ },
+ "constitucional-9": {
+  "disciplina": "constitucional",
+  "numero": 9,
+  "titulo": "CF, arts. 127 a 135 (Ministério Público, Advocacia Pública e Defensoria Pública)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "6 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "constitucional-10": {
+  "disciplina": "constitucional",
+  "numero": 10,
+  "titulo": "CF, arts. 76 a 91 (Presidente, Ministros de Estado e crimes de responsabilidade)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "5 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "EC 111/2021: a partir das eleições de 2026, a posse do Presidente passa a 5 de janeiro (e dos Governadores a 6 de janeiro)."
+ },
+ "constitucional-11": {
+  "disciplina": "constitucional",
+  "numero": 11,
+  "titulo": "CF, arts. 102, 105, 108 e 109 (competências do STF, do STJ e da Justiça Federal)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "5 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "TRF-3/2024 e TRF-4/2025 também cobraram Justiça Federal e TRFs."
+ },
+ "constitucional-12": {
+  "disciplina": "constitucional",
+  "numero": 12,
+  "titulo": "CF, art. 103-B (Conselho Nacional de Justiça)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "5 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "constitucional-13": {
+  "disciplina": "constitucional",
+  "numero": 13,
+  "titulo": "CF, art. 5º, LXVIII a LXXIII (mandado de segurança, mandado de injunção, habeas data e ação popular)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "constitucional-14": {
+  "disciplina": "constitucional",
+  "numero": 14,
+  "titulo": "CF, arts. 37 e 38 (administração pública: concurso, acumulação, funções de confiança)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "constitucional-15": {
+  "disciplina": "constitucional",
+  "numero": 15,
+  "titulo": "CF, art. 103-A (súmula vinculante)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "constitucional-16": {
+  "disciplina": "constitucional",
+  "numero": 16,
+  "titulo": "CF, arts. 39 a 41 (servidores: estabilidade e perda do cargo)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "constitucional-17": {
+  "disciplina": "constitucional",
+  "numero": 17,
+  "titulo": "CF, arts. 1º a 4º (princípios fundamentais)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "constitucional-18": {
+  "disciplina": "constitucional",
+  "numero": 18,
+  "titulo": "CF, arts. 48 a 52 (atribuições do Congresso, da Câmara e do Senado)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "constitucional-19": {
+  "disciplina": "constitucional",
+  "numero": 19,
+  "titulo": "CF, arts. 125 e 126 (Tribunais e Juízes dos Estados)",
+  "incidencia": "Não caiu na amostra",
+  "caiuEm": "0 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Só caiu no TJ-CE/2026, fora da contagem."
+ },
+ "constitucional-20": {
+  "disciplina": "constitucional",
+  "numero": 20,
+  "titulo": "CF, arts. 165 a 169 (orçamento)",
+  "incidencia": "Não caiu na amostra",
+  "caiuEm": "0 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Só caiu no TRF-4/2025, fora da contagem."
+ },
+ "constitucional-21": {
+  "disciplina": "constitucional",
+  "numero": 21,
+  "titulo": "CF, art. 226, §7º (planejamento familiar)",
+  "incidencia": "Não caiu na amostra",
+  "caiuEm": "0 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Só caiu no TJ-CE/2026, fora da contagem."
+ },
+ "direitos_humanos-1": {
+  "disciplina": "direitos_humanos",
+  "numero": 1,
+  "titulo": "Resolução CSJT 368/2023 (Programa de Equidade de Raça, Gênero e Diversidade da Justiça do Trabalho)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "3 de 4 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Caiu em 3 dos 4 cadernos, duas vezes com a mesma questão (TRT-6 AJ e OJAF). Decore as definições do glossário da resolução. Confira no site do CSJT se houve alteração posterior."
+ },
+ "direitos_humanos-2": {
+  "disciplina": "direitos_humanos",
+  "numero": 2,
+  "titulo": "Declaração das Nações Unidas sobre os Direitos dos Povos Indígenas (2007)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "3 de 4 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Caiu em 3 dos 4 cadernos. As pegadinhas usam \"exclusivamente\", \"em nenhuma hipótese\" ou dizem que a identidade própria prejudica a cidadania do Estado: tudo errado."
+ },
+ "direitos_humanos-3": {
+  "disciplina": "direitos_humanos",
+  "numero": 3,
+  "titulo": "CF, art. 5º, §§2º e 3º (status dos tratados de direitos humanos)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "3 de 4 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Aprovados com status de emenda: Convenção sobre os Direitos das Pessoas com Deficiência e Protocolo (Decreto 6.949/2009), Tratado de Marraqueche (Decreto 9.522/2018) e Convenção Interamericana contra o Racismo (Decreto 10.932/2022). Súmula Vinculante 25: prisão civil só do devedor de alimentos."
+ },
+ "direitos_humanos-4": {
+  "disciplina": "direitos_humanos",
+  "numero": 4,
+  "titulo": "Protocolo Facultativo à Convenção sobre a Eliminação de Todas as Formas de Discriminação contra a Mulher (Decreto 4.316/2002)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "2 de 4 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Mesma questão nos dois cadernos do TRT-6/2025."
+ },
+ "direitos_humanos-5": {
+  "disciplina": "direitos_humanos",
+  "numero": 5,
+  "titulo": "Resolução CNJ 492/2023 (julgamento com perspectiva de gênero) e Resolução CNJ 255/2018 (participação institucional feminina)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "2 de 4 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Mesma questão nos dois cadernos do TRT-6/2025. Pegadinha: \"vedada a participação da academia e da sociedade civil\" está errado."
+ },
+ "direitos_humanos-6": {
+  "disciplina": "direitos_humanos",
+  "numero": 6,
+  "titulo": "Estatuto de Roma do Tribunal Penal Internacional (Decreto 4.388/2002) e CF, art. 5º, §4º",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 4 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "direitos_humanos-7": {
+  "disciplina": "direitos_humanos",
+  "numero": 7,
+  "titulo": "Convenção Americana sobre Direitos Humanos (Pacto de San José, Decreto 678/1992), arts. 1º a 32",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 4 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "direitos_humanos-8": {
+  "disciplina": "direitos_humanos",
+  "numero": 8,
+  "titulo": "Declaração Universal dos Direitos Humanos (1948)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 4 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "direitos_humanos-9": {
+  "disciplina": "direitos_humanos",
+  "numero": 9,
+  "titulo": "Convenção Americana, arts. 33 a 51 (Comissão e Corte Interamericanas)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 4 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Brasil reconheceu a competência contenciosa da Corte em 1998 (Decreto 4.463/2002)."
+ },
+ "direitos_humanos-10": {
+  "disciplina": "direitos_humanos",
+  "numero": 10,
+  "titulo": "Protocolo de San Salvador (direitos econômicos, sociais e culturais, Decreto 3.321/1999)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 4 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "direitos_humanos-11": {
+  "disciplina": "direitos_humanos",
+  "numero": 11,
+  "titulo": "Convenção sobre os Direitos das Pessoas com Deficiência (Decreto 6.949/2009), art. 1º",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 4 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Lei com definição mais restritiva que a da Convenção é inconstitucional, não \"ilegal\" (TRT-11/2024)."
+ },
+ "direitos_humanos-12": {
+  "disciplina": "direitos_humanos",
+  "numero": 12,
+  "titulo": "Convenção Interamericana contra o Racismo, a Discriminação Racial e Formas Correlatas de Intolerância (Decreto 10.932/2022)",
+  "incidencia": "Não caiu na amostra",
+  "caiuEm": "0 de 4 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Não caiu nos 4 cadernos, mas tem status de emenda constitucional e combina com os temas de raça e diversidade que a FCC vem cobrando."
+ },
+ "legislacao-1": {
+  "disciplina": "legislacao",
+  "numero": 1,
+  "titulo": "Regimento Interno do TRT da 4ª Região (atualizado até a RA nº 31, de 17/08/2026, Assento Regimental nº 04/2026)",
+  "incidencia": "Incidência Altíssima",
+  "caiuEm": "20 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "É o tema que mais cai em Noções de Legislação: 20 dos 25 cadernos, de 1 a 6 questões por prova. O edital fixa a versão: atualizada até a RA nº 31/2026 (Assento Regimental nº 04/2026, publicado em 08/09/2026). Estude por essa versão e confira no site do TRT-4 se não saiu outra."
+ },
+ "legislacao-2": {
+  "disciplina": "legislacao",
+  "numero": 2,
+  "titulo": "Código de Conduta e Valores Éticos do TRT da 4ª Região (Portaria GP.TRT4 nº 4.573/2023, compilada com a Portaria GP.TRT4 nº 2.808/2025)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "O edital indica a versão compilada com a Portaria GP.TRT4 nº 2.808/2025. A FCC usa o código do próprio tribunal, então os detalhes (nomes das comissões, prazos, penalidades) mudam de um TRT para outro."
+ },
+ "legislacao-3": {
+  "disciplina": "legislacao",
+  "numero": 3,
+  "titulo": "Resolução CNJ nº 400/2021 (política de sustentabilidade no Poder Judiciário), alterada pelas Resoluções CNJ nº 550/2024 e nº 641/2025",
+  "incidencia": "Incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "A Resolução CNJ nº 550/2024 alterou a 400/2021: criou o Balanço da Sustentabilidade e o IDS (arts. 22-A a 22-C), o relatório anual do PLS (art. 10-A), a meta de compensação de emissões até 2030 (art. 24) e revogou os arts. 11 e 12. O TRT-1/2025 cobrou exatamente o Balanço. Estude o texto compilado."
+ },
+ "legislacao-4": {
+  "disciplina": "legislacao",
+  "numero": 4,
+  "titulo": "Resolução CSJT nº 360/2023 (Política de Prevenção e Enfrentamento da Violência, do Assédio e de Todas as Formas de Discriminação na Justiça do Trabalho)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "No TRT-6/2025 (AJ q.17 e OJAF q.16) a FCC cobrou a norma regional que aplica essa política (RA TRT6-GP nº 29/2023): quem pode noticiar e como a notícia é recebida. O equivalente no TRT-4 é a RA TRT4 nº 11/2025, que segue as definições da Resolução CSJT 360/2023 e da Resolução CNJ 351/2020."
+ },
+ "legislacao-5": {
+  "disciplina": "legislacao",
+  "numero": 5,
+  "titulo": "Resolução CNJ nº 351/2020 (Política de Prevenção e Enfrentamento do Assédio Moral, do Assédio Sexual e da Discriminação no Poder Judiciário)",
+  "incidencia": "Não caiu na amostra",
+  "caiuEm": "0 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Alterada várias vezes; a mais recente foi a Resolução CNJ nº 671, de 09/02/2026: a política passou a alcançar estagiários, aprendizes, voluntários, terceirizados e cartórios; ficou proibida a retaliação contra quem denuncia, testemunha ou colabora, e cabe à Administração provar que um ato não é retaliação; \"notícia\" passa a ser qualquer comunicação, mesmo informal. Estude o texto compilado de 2026."
+ },
+ "processo_civil-1": {
+  "disciplina": "processo_civil",
+  "numero": 1,
+  "titulo": "CPC, arts. 236 a 275 (citação e intimação)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "7 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Art. 246 com redação da Lei 14.195/2021 (citação eletrônica). TJ-CE/2026 também cobrou citação e intimação da Fazenda Pública por meio eletrônico."
+ },
+ "processo_civil-2": {
+  "disciplina": "processo_civil",
+  "numero": 2,
+  "titulo": "CPC, arts. 509 a 538 (liquidação e cumprimento de sentença)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "6 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Lei 15.479/2026 criou o art. 529-A (transferência automática da pensão alimentícia), em vigor só em 2027. Fora da contagem: TRF-4/2025 cobrou inexigibilidade do título por decisão do STF (art. 525, §§12 a 15) e TJ-CE/2026 cobrou liquidação."
+ },
+ "processo_civil-3": {
+  "disciplina": "processo_civil",
+  "numero": 3,
+  "titulo": "CPC, arts. 831 a 869 (penhora e impenhorabilidades)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "6 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "O STJ estende a impenhorabilidade de até 40 salários mínimos a outras aplicações financeiras, não só à poupança."
+ },
+ "processo_civil-4": {
+  "disciplina": "processo_civil",
+  "numero": 4,
+  "titulo": "CPC, arts. 70 a 76 (capacidade processual, representação e curador especial)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "6 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-5": {
+  "disciplina": "processo_civil",
+  "numero": 5,
+  "titulo": "CPC, arts. 43, 54 a 66 (competência absoluta e relativa, modificação e alegação)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "5 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Não existe mais exceção de incompetência em peça própria: a alegação vai na contestação."
+ },
+ "processo_civil-6": {
+  "disciplina": "processo_civil",
+  "numero": 6,
+  "titulo": "CPC, arts. 485 a 508 (sentença e coisa julgada)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "5 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "TJ-CE/2026 também cobrou julgamento antecipado do mérito (art. 355)."
+ },
+ "processo_civil-7": {
+  "disciplina": "processo_civil",
+  "numero": 7,
+  "titulo": "CPC, arts. 144 a 148 (impedimento e suspeição)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "5 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "O art. 144, VIII (escritório de advocacia de parente) foi declarado inconstitucional pelo STF na ADI 5953 (2023)."
+ },
+ "processo_civil-8": {
+  "disciplina": "processo_civil",
+  "numero": 8,
+  "titulo": "Lei 9.099/1995, arts. 3º, 8º e 9º (Juizados Especiais Cíveis)",
+  "incidencia": "Incidência Alta",
+  "caiuEm": "5 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-9": {
+  "disciplina": "processo_civil",
+  "numero": 9,
+  "titulo": "CPC, arts. 369 a 484 (provas)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "STJ, Tema 1000 (2021): cabe multa para forçar a exibição de documentos; a Súmula 372 do STJ ficou superada nesse ponto."
+ },
+ "processo_civil-10": {
+  "disciplina": "processo_civil",
+  "numero": 10,
+  "titulo": "CPC, arts. 119 a 124 (assistência simples e litisconsorcial)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "TJ-CE/2026 também cobrou assistência e litisconsórcio."
+ },
+ "processo_civil-11": {
+  "disciplina": "processo_civil",
+  "numero": 11,
+  "titulo": "CPC, arts. 130 a 132 (chamamento ao processo)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "O caso do fiador de locação caiu igual no TRT-12/2023 e no TRT-6/2025."
+ },
+ "processo_civil-12": {
+  "disciplina": "processo_civil",
+  "numero": 12,
+  "titulo": "CPC, arts. 212 a 235 (tempo e prazo dos atos processuais)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "O TRT-2/2025 cobrou o art. 212, §2º: citação, intimação e penhora em feriado não dependem de autorização judicial."
+ },
+ "processo_civil-13": {
+  "disciplina": "processo_civil",
+  "numero": 13,
+  "titulo": "CPC, arts. 771 a 805 e 824 a 830 (execução: disposições gerais)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-14": {
+  "disciplina": "processo_civil",
+  "numero": 14,
+  "titulo": "CPC, arts. 18, 108 a 110 e 778 (substituição e sucessão processual)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "TRF-4/2025 repetiu a cessão de crédito na execução."
+ },
+ "processo_civil-15": {
+  "disciplina": "processo_civil",
+  "numero": 15,
+  "titulo": "CPC, arts. 335 a 343 (contestação e reconvenção)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-16": {
+  "disciplina": "processo_civil",
+  "numero": 16,
+  "titulo": "CPC, arts. 113 a 118 (litisconsórcio)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-17": {
+  "disciplina": "processo_civil",
+  "numero": 17,
+  "titulo": "CPC, arts. 319 a 331 (petição inicial)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "O prazo para emenda é de 15 dias (art. 321); o TRT-2/2025 armou o caso com 5 dias."
+ },
+ "processo_civil-18": {
+  "disciplina": "processo_civil",
+  "numero": 18,
+  "titulo": "CPC, arts. 46 a 53 (foros: regra geral e foros especiais)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Art. 53, I, \"d\", incluído pela Lei 13.894/2019: vítima de violência doméstica tem foro do seu domicílio."
+ },
+ "processo_civil-19": {
+  "disciplina": "processo_civil",
+  "numero": 19,
+  "titulo": "CPC, arts. 825 e 876 a 903 (adjudicação, alienação e apropriação de frutos)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-20": {
+  "disciplina": "processo_civil",
+  "numero": 20,
+  "titulo": "CPC, arts. 313 a 315 (suspensão do processo)",
+  "incidencia": "Incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-21": {
+  "disciplina": "processo_civil",
+  "numero": 21,
+  "titulo": "CPC, arts. 149, 154, 155 e 782 (oficial de justiça)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Só caiu nas provas de Oficial de Justiça."
+ },
+ "processo_civil-22": {
+  "disciplina": "processo_civil",
+  "numero": 22,
+  "titulo": "CPC, arts. 344 a 346 (revelia)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "TJ-CE/2026 cobrou revelia com litisconsórcio."
+ },
+ "processo_civil-23": {
+  "disciplina": "processo_civil",
+  "numero": 23,
+  "titulo": "CPC, arts. 133 a 137 (incidente de desconsideração da personalidade jurídica)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "No processo do trabalho o IDPJ é o tema mais cobrado (ver aba Processo do Trabalho). TRF-3/2024 também cobrou."
+ },
+ "processo_civil-24": {
+  "disciplina": "processo_civil",
+  "numero": 24,
+  "titulo": "CPC, arts. 926 a 928 e 976 a 993 (precedentes, IRDR e reclamação)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "TJ-CE/2026 cobrou reclamação junto com ação civil pública."
+ },
+ "processo_civil-25": {
+  "disciplina": "processo_civil",
+  "numero": 25,
+  "titulo": "CPC, arts. 1º a 12 (normas fundamentais)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Art. 12 com redação da Lei 13.256/2016."
+ },
+ "processo_civil-26": {
+  "disciplina": "processo_civil",
+  "numero": 26,
+  "titulo": "CPC, arts. 294 a 311 (tutela provisória)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-27": {
+  "disciplina": "processo_civil",
+  "numero": 27,
+  "titulo": "CPC, arts. 125 a 129 (denunciação da lide)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-28": {
+  "disciplina": "processo_civil",
+  "numero": 28,
+  "titulo": "CPC, arts. 1.009 a 1.014 (apelação)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-29": {
+  "disciplina": "processo_civil",
+  "numero": 29,
+  "titulo": "CPC, arts. 1.015 a 1.020 (agravo de instrumento)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "STJ, Tema 988: o rol do art. 1.015 é de taxatividade mitigada (cabe agravo em caso de urgência)."
+ },
+ "processo_civil-30": {
+  "disciplina": "processo_civil",
+  "numero": 30,
+  "titulo": "CPC, arts. 674 a 681 (embargos de terceiro)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-31": {
+  "disciplina": "processo_civil",
+  "numero": 31,
+  "titulo": "CPC, arts. 554 a 568 (ações possessórias)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-32": {
+  "disciplina": "processo_civil",
+  "numero": 32,
+  "titulo": "CPC, arts. 914 a 920 (embargos à execução)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-33": {
+  "disciplina": "processo_civil",
+  "numero": 33,
+  "titulo": "CPC, arts. 700 a 702 (ação monitória)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-34": {
+  "disciplina": "processo_civil",
+  "numero": 34,
+  "titulo": "Lei 7.347/1985 (ação civil pública)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "TJ-CE/2026 também cobrou."
+ },
+ "processo_civil-35": {
+  "disciplina": "processo_civil",
+  "numero": 35,
+  "titulo": "CPC, arts. 276 a 283 (nulidades)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-36": {
+  "disciplina": "processo_civil",
+  "numero": 36,
+  "titulo": "CPC, arts. 966 a 975 (ação rescisória)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-37": {
+  "disciplina": "processo_civil",
+  "numero": 37,
+  "titulo": "CPC, arts. 176 a 181 (Ministério Público)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Só caiu no TRF-3/2024, fora da contagem."
+ },
+ "processo_civil-38": {
+  "disciplina": "processo_civil",
+  "numero": 38,
+  "titulo": "CPC, arts. 17 a 20 (interesse, legitimidade e ação declaratória)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-39": {
+  "disciplina": "processo_civil",
+  "numero": 39,
+  "titulo": "CPC, art. 63 (foro de eleição)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Redação da Lei 14.879/2024 (junho de 2024): exige pertinência e permite ao juiz declinar de ofício quando a ação for proposta em juízo aleatório (§5º). O TRT-15/2025 cobrou exatamente a nova redação."
+ },
+ "processo_civil-40": {
+  "disciplina": "processo_civil",
+  "numero": 40,
+  "titulo": "Lei 12.016/2009 (mandado de segurança)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-41": {
+  "disciplina": "processo_civil",
+  "numero": 41,
+  "titulo": "CPC, arts. 1.022 a 1.026 (embargos de declaração)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-42": {
+  "disciplina": "processo_civil",
+  "numero": 42,
+  "titulo": "CPC, arts. 1.029 a 1.044 (recursos especial e extraordinário)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "EC 125/2022 criou o filtro de relevância no recurso especial; a aplicação depende de lei regulamentadora. Confira a situação antes da prova."
+ },
+ "processo_civil-43": {
+  "disciplina": "processo_civil",
+  "numero": 43,
+  "titulo": "CPC, art. 496 (remessa necessária)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-44": {
+  "disciplina": "processo_civil",
+  "numero": 44,
+  "titulo": "CPC, art. 139 (poderes do juiz)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "STF, ADI 5941 (2023): as medidas atípicas do art. 139, IV, são constitucionais, com proporcionalidade."
+ },
+ "processo_civil-45": {
+  "disciplina": "processo_civil",
+  "numero": 45,
+  "titulo": "CPC, arts. 77 a 81 (deveres das partes e litigância de má-fé)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-46": {
+  "disciplina": "processo_civil",
+  "numero": 46,
+  "titulo": "CPC, arts. 539 a 549 (consignação em pagamento)",
+  "incidencia": "Incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_civil-47": {
+  "disciplina": "processo_civil",
+  "numero": 47,
+  "titulo": "CPC, art. 332 (improcedência liminar do pedido)",
+  "incidencia": "Não caiu na amostra",
+  "caiuEm": "0 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Só caiu no TRF-3/2024, fora da contagem."
+ },
+ "processo_civil-48": {
+  "disciplina": "processo_civil",
+  "numero": 48,
+  "titulo": "Lei 15.479/2026 (CPC, art. 529-A e parágrafos de 196 e 913: transferência automática da pensão alimentícia)",
+  "incidencia": "Não caiu na amostra",
+  "caiuEm": "0 de 25 cadernos",
+  "vigencia": "Em vigor a partir de 2027",
+  "atencao": "Sancionada em 29/07/2026, com vigência 1 ano após a publicação. Não caiu em nenhum caderno."
+ },
+ "processo_trabalho-1": {
+  "disciplina": "processo_trabalho",
+  "numero": 1,
+  "titulo": "CLT, art. 855-A + CPC, arts. 133 a 137 (desconsideração da personalidade jurídica)",
+  "incidencia": "Processo do Trabalho – incidência Altíssima",
+  "caiuEm": "13 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Foi o tema processual mais repetido: 13 cadernos. STF, Tema 1232 (2025): empresa do grupo que não participou do conhecimento não pode, em regra, ser incluída na execução."
+ },
+ "processo_trabalho-2": {
+  "disciplina": "processo_trabalho",
+  "numero": 2,
+  "titulo": "CLT, arts. 651, 799, 800 e 808 + Súmulas 214, 419 e 420 do TST (competência territorial, exceções e conflitos)",
+  "incidencia": "Processo do Trabalho – incidência Altíssima",
+  "caiuEm": "11 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Pegadinha recorrente: a exceção não vai como preliminar da contestação."
+ },
+ "processo_trabalho-3": {
+  "disciplina": "processo_trabalho",
+  "numero": 3,
+  "titulo": "CLT, arts. 731, 732, 813 a 817 e 843 a 852 + Súmulas 9, 74 e 122 do TST (audiência, revelia, defesa e perempção)",
+  "incidencia": "Processo do Trabalho – incidência Altíssima",
+  "caiuEm": "10 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Súmula 377 (preposto empregado) cancelada. Súmula 122 segue: leia com o art. 844, §5º."
+ },
+ "processo_trabalho-4": {
+  "disciplina": "processo_trabalho",
+  "numero": 4,
+  "titulo": "CLT, art. 899, §§1º a 11 + Súmulas 128 e 245 do TST + OJ 140 da SDI-1 (depósito recursal)",
+  "incidencia": "Processo do Trabalho – incidência Altíssima",
+  "caiuEm": "9 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Súmula 426 (guia GFIP) cancelada."
+ },
+ "processo_trabalho-5": {
+  "disciplina": "processo_trabalho",
+  "numero": 5,
+  "titulo": "CLT, arts. 855-B a 855-E + Súmula 418 do TST (homologação de acordo)",
+  "incidencia": "Processo do Trabalho – incidência Altíssima",
+  "caiuEm": "9 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-6": {
+  "disciplina": "processo_trabalho",
+  "numero": 6,
+  "titulo": "CLT, art. 836 + CPC, arts. 966 a 975 + Súmulas 83, 100, 298, 299, 398, 402, 403, 406 e 407 do TST (ação rescisória)",
+  "incidencia": "Processo do Trabalho – incidência Altíssima",
+  "caiuEm": "8 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Também caiu em estudo de caso (TRT-2/2025)."
+ },
+ "processo_trabalho-7": {
+  "disciplina": "processo_trabalho",
+  "numero": 7,
+  "titulo": "CLT, arts. 852-A a 852-I (procedimento sumaríssimo)",
+  "incidencia": "Processo do Trabalho – incidência Altíssima",
+  "caiuEm": "8 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Várias questões listam réus (doméstico, autarquia, fundação, SEM) para o candidato separar."
+ },
+ "processo_trabalho-8": {
+  "disciplina": "processo_trabalho",
+  "numero": 8,
+  "titulo": "CLT, art. 11-A (prescrição intercorrente)",
+  "incidencia": "Processo do Trabalho – incidência Altíssima",
+  "caiuEm": "8 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Súmula 114 cancelada em 2025."
+ },
+ "processo_trabalho-9": {
+  "disciplina": "processo_trabalho",
+  "numero": 9,
+  "titulo": "CLT, arts. 774, 775 e 775-A + Súmulas 1, 16 e 262 do TST (prazos)",
+  "incidencia": "Processo do Trabalho – incidência Altíssima",
+  "caiuEm": "8 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Questões de contagem com calendário são frequentes."
+ },
+ "processo_trabalho-10": {
+  "disciplina": "processo_trabalho",
+  "numero": 10,
+  "titulo": "CLT, arts. 819 a 829 + Súmula 357 do TST (prova testemunhal)",
+  "incidencia": "Processo do Trabalho – incidência Alta",
+  "caiuEm": "7 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Também em estudo de caso (TRT-14/2022 OJAF)."
+ },
+ "processo_trabalho-11": {
+  "disciplina": "processo_trabalho",
+  "numero": 11,
+  "titulo": "CLT, arts. 789 a 790-A + Súmula 86 do TST + OJ 140 da SDI-1 (custas)",
+  "incidencia": "Processo do Trabalho – incidência Alta",
+  "caiuEm": "7 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-12": {
+  "disciplina": "processo_trabalho",
+  "numero": 12,
+  "titulo": "CLT, arts. 896 e 896-A + Súmulas 218, 266, 297 e 442 do TST + IN 40/2016 (recurso de revista)",
+  "incidencia": "Processo do Trabalho – incidência Alta",
+  "caiuEm": "7 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "§5º do art. 896-A declarado inconstitucional pelo TST."
+ },
+ "processo_trabalho-13": {
+  "disciplina": "processo_trabalho",
+  "numero": 13,
+  "titulo": "CF, art. 114, §§2º e 3º + CLT, arts. 616, 856 a 875 + OJs 188 e 277 da SDI-1 (dissídio coletivo e ação de cumprimento)",
+  "incidencia": "Processo do Trabalho – incidência Alta",
+  "caiuEm": "7 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-14": {
+  "disciplina": "processo_trabalho",
+  "numero": 14,
+  "titulo": "CLT, arts. 721, 880, 882, 883, 888 + CPC, arts. 833 e 835 (penhora, avaliação e expropriação)",
+  "incidencia": "Processo do Trabalho – incidência Alta",
+  "caiuEm": "6 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Bloco próprio do Oficial de Justiça: caiu em 4 dos 9 cadernos de OJAF."
+ },
+ "processo_trabalho-15": {
+  "disciplina": "processo_trabalho",
+  "numero": 15,
+  "titulo": "CLT, arts. 793-A a 793-D + OJ 409 da SDI-1 (litigância de má-fé)",
+  "incidencia": "Processo do Trabalho – incidência Alta",
+  "caiuEm": "6 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-16": {
+  "disciplina": "processo_trabalho",
+  "numero": 16,
+  "titulo": "CLT, art. 791-A (honorários de sucumbência)",
+  "incidencia": "Processo do Trabalho – incidência Alta",
+  "caiuEm": "6 de 25 cadernos",
+  "vigencia": "Inconstitucional em parte",
+  "atencao": "ADI 5766: inconstitucional cobrar do beneficiário da justiça gratuita com créditos do processo. Súmulas 219 e 329 canceladas."
+ },
+ "processo_trabalho-17": {
+  "disciplina": "processo_trabalho",
+  "numero": 17,
+  "titulo": "CLT, arts. 893, §1º, e 895 + Súmulas 158, 201 e 214 do TST (recurso ordinário e interlocutórias)",
+  "incidencia": "Processo do Trabalho – incidência Alta",
+  "caiuEm": "6 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-18": {
+  "disciplina": "processo_trabalho",
+  "numero": 18,
+  "titulo": "CF, art. 114 + Súmulas Vinculantes 22, 23 e 53 + Súmulas 368, 392 e 454 do TST + teses de repercussão geral (competência material)",
+  "incidencia": "Processo do Trabalho – incidência Alta",
+  "caiuEm": "6 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-19": {
+  "disciplina": "processo_trabalho",
+  "numero": 19,
+  "titulo": "CF, arts. 93, 111 a 116 + Regimento Interno do TST (organização da Justiça do Trabalho)",
+  "incidencia": "Processo do Trabalho – incidência Alta",
+  "caiuEm": "6 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-20": {
+  "disciplina": "processo_trabalho",
+  "numero": 20,
+  "titulo": "CLT, art. 818 + Súmulas 74 e 212 do TST (ônus da prova)",
+  "incidencia": "Processo do Trabalho – incidência Alta",
+  "caiuEm": "5 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-21": {
+  "disciplina": "processo_trabalho",
+  "numero": 21,
+  "titulo": "Lei 12.016/2009 + Súmulas 33, 414, 415 e 418 do TST + OJ 92 da SDI-2 (mandado de segurança)",
+  "incidencia": "Processo do Trabalho – incidência Alta",
+  "caiuEm": "5 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-22": {
+  "disciplina": "processo_trabalho",
+  "numero": 22,
+  "titulo": "CF, art. 7º, XXIX + CLT, art. 11 + OJs 83 e 401 da SDI-1 (prescrição, quando cobrada em Processo do Trabalho)",
+  "incidencia": "Processo do Trabalho – incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Súmula 268 cancelada: vale o art. 11, §3º."
+ },
+ "processo_trabalho-23": {
+  "disciplina": "processo_trabalho",
+  "numero": 23,
+  "titulo": "CLT, art. 884 (embargos à execução)",
+  "incidencia": "Processo do Trabalho – incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-24": {
+  "disciplina": "processo_trabalho",
+  "numero": 24,
+  "titulo": "CLT, art. 790-B + Súmula 341 do TST + Resolução CSJT 247/2019 (honorários periciais)",
+  "incidencia": "Processo do Trabalho – incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Inconstitucional em parte",
+  "atencao": "ADI 5766: beneficiário da gratuidade não paga; União responde (Súm. 457)."
+ },
+ "processo_trabalho-25": {
+  "disciplina": "processo_trabalho",
+  "numero": 25,
+  "titulo": "Súmulas 383, 395, 436 e 456 do TST (mandato e representação)",
+  "incidencia": "Processo do Trabalho – incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-26": {
+  "disciplina": "processo_trabalho",
+  "numero": 26,
+  "titulo": "CLT, arts. 896-B e 896-C + IN 38/2015 do TST + CPC, arts. 976 a 987 (recursos repetitivos e IRDR)",
+  "incidencia": "Processo do Trabalho – incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-27": {
+  "disciplina": "processo_trabalho",
+  "numero": 27,
+  "titulo": "CLT, art. 791 + Súmula 425 do TST (jus postulandi)",
+  "incidencia": "Processo do Trabalho – incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-28": {
+  "disciplina": "processo_trabalho",
+  "numero": 28,
+  "titulo": "CLT, arts. 794 a 798 (nulidades)",
+  "incidencia": "Processo do Trabalho – incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-29": {
+  "disciplina": "processo_trabalho",
+  "numero": 29,
+  "titulo": "CLT, art. 897 (agravo de petição e de instrumento)",
+  "incidencia": "Processo do Trabalho – incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-30": {
+  "disciplina": "processo_trabalho",
+  "numero": 30,
+  "titulo": "CLT, arts. 876 a 883-A + IN 39/2016 do TST (citação, garantia, protesto e BNDT)",
+  "incidencia": "Processo do Trabalho – incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Atualização dos créditos: ADCs 58 e 59 e Lei 14.905/2024."
+ },
+ "processo_trabalho-31": {
+  "disciplina": "processo_trabalho",
+  "numero": 31,
+  "titulo": "Súmula 283 do TST (recurso adesivo)",
+  "incidencia": "Processo do Trabalho – incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Caiu em estudo de caso inteiro (TRT-15/2025)."
+ },
+ "processo_trabalho-32": {
+  "disciplina": "processo_trabalho",
+  "numero": 32,
+  "titulo": "Súmula 303 do TST + Decreto-Lei 779/1969 + Resolução CSJT 314/2021 (Fazenda Pública, precatórios e RPV)",
+  "incidencia": "Processo do Trabalho – incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-33": {
+  "disciplina": "processo_trabalho",
+  "numero": 33,
+  "titulo": "CLT, art. 840 + IN 41/2018 do TST, art. 12 (petição inicial)",
+  "incidencia": "Processo do Trabalho – incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-34": {
+  "disciplina": "processo_trabalho",
+  "numero": 34,
+  "titulo": "CLT, arts. 853 a 855 + Súmulas 62 e 379 do TST (inquérito para falta grave)",
+  "incidencia": "Processo do Trabalho – incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-35": {
+  "disciplina": "processo_trabalho",
+  "numero": 35,
+  "titulo": "CPC, arts. 674 a 681 + Súmula 419 do TST (embargos de terceiro)",
+  "incidencia": "Processo do Trabalho – incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Estudo de caso do TRT-15/2025 OJAF (penhora da casa de terceiro por carta precatória)."
+ },
+ "processo_trabalho-36": {
+  "disciplina": "processo_trabalho",
+  "numero": 36,
+  "titulo": "Lei 8.009/1990 (bem de família)",
+  "incidencia": "Processo do Trabalho – incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-37": {
+  "disciplina": "processo_trabalho",
+  "numero": 37,
+  "titulo": "OJ 310 da SDI-1 + Súmulas 8, 30, 427 e 435 do TST (litisconsórcio e atos recursais)",
+  "incidencia": "Processo do Trabalho – incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-38": {
+  "disciplina": "processo_trabalho",
+  "numero": 38,
+  "titulo": "CLT, arts. 770 a 774 e 841 (atos e notificações)",
+  "incidencia": "Processo do Trabalho – incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-40": {
+  "disciplina": "processo_trabalho",
+  "numero": 40,
+  "titulo": "Lei 7.347/1985 + LC 75/1993, art. 83 + Súmula 407 e OJs 130, 237 e 350 da SDI-1/SDI-2 (ação civil pública e MPT)",
+  "incidencia": "Processo do Trabalho – incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-41": {
+  "disciplina": "processo_trabalho",
+  "numero": 41,
+  "titulo": "CLT, arts. 769 e 889 + CPC, art. 15 + IN 39/2016 do TST (aplicação subsidiária e fontes)",
+  "incidencia": "Processo do Trabalho – incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-42": {
+  "disciplina": "processo_trabalho",
+  "numero": 42,
+  "titulo": "CLT, art. 894 + Súmula 353 do TST (embargos à SDI)",
+  "incidencia": "Processo do Trabalho – incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-43": {
+  "disciplina": "processo_trabalho",
+  "numero": 43,
+  "titulo": "Lei 11.419/2006 + IN 30/2007 do TST (processo eletrônico)",
+  "incidencia": "Processo do Trabalho – incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "processo_trabalho-44": {
+  "disciplina": "processo_trabalho",
+  "numero": 44,
+  "titulo": "CLT, art. 897-A + Súmula 278 do TST (embargos de declaração)",
+  "incidencia": "Processo do Trabalho – incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-1": {
+  "disciplina": "trabalho",
+  "numero": 1,
+  "titulo": "CLT, arts. 129 a 145 + Súmulas 7, 81, 171, 261 e 328 do TST (férias)",
+  "incidencia": "Direito do Trabalho – incidência Altíssima",
+  "caiuEm": "11 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Fracionamento: um período de pelo menos 14 dias e os demais de pelo menos 5, com concordância do empregado; a regra antiga para menores de 18 e maiores de 50 anos foi revogada e aparece como alternativa errada. Coletivas: 2 períodos, nenhum inferior a 10 dias, comunicação com 15 dias ao Ministério do Trabalho e ao sindicato. Súmula 450 (dobra por pagamento atrasado) cancelada; o item I da questão do TRT- 12/2023 reproduzia essa súmula."
+ },
+ "trabalho-2": {
+  "disciplina": "trabalho",
+  "numero": 2,
+  "titulo": "CLT, arts. 75-A a 75-F e 62, III (teletrabalho)",
+  "incidencia": "Direito do Trabalho – incidência Altíssima",
+  "caiuEm": "11 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Redação da Lei 14.442/2022. Foi o tema mais repetido de Direito do Trabalho junto com férias: caiu em 11 cadernos, de 2022 a 2025."
+ },
+ "trabalho-3": {
+  "disciplina": "trabalho",
+  "numero": 3,
+  "titulo": "CLT, arts. 189 a 192, 194 e 195 + Súmulas 47, 80, 139, 248, 289 e 448 do TST (insalubridade)",
+  "incidencia": "Direito do Trabalho – incidência Altíssima",
+  "caiuEm": "10 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Base de cálculo: Súmula 228 cancelada; segue o salário mínimo (Súmula Vinculante 4). O adicional não se incorpora: cessado o risco, cessa o pagamento (questões do TRT-6/2025 e do TRT-9/2022)."
+ },
+ "trabalho-4": {
+  "disciplina": "trabalho",
+  "numero": 4,
+  "titulo": "CLT, art. 193 + Súmulas 132, 191, 364, 447 e 453 do TST (periculosidade)",
+  "incidencia": "Direito do Trabalho – incidência Altíssima",
+  "caiuEm": "10 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Cálculo com salário + gratificação + prêmio caiu em 3 cadernos (TRT-23/2022, TRT-17/2022): a base é só o salário. Doméstico não tem adicional (CF, art. 7º, parágrafo único)."
+ },
+ "trabalho-5": {
+  "disciplina": "trabalho",
+  "numero": 5,
+  "titulo": "CLT, art. 484-A (extinção por acordo)",
+  "incidencia": "Direito do Trabalho – incidência Altíssima",
+  "caiuEm": "10 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Caiu em 10 cadernos, quase sempre com números (saldo do FGTS e salário dados no enunciado)."
+ },
+ "trabalho-6": {
+  "disciplina": "trabalho",
+  "numero": 6,
+  "titulo": "CLT, arts. 163 a 165 + ADCT, art. 10, II, a + Súmula 339 do TST (CIPA)",
+  "incidencia": "Direito do Trabalho – incidência Altíssima",
+  "caiuEm": "10 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Pegadinha frequente: indicado pelo empregador não tem estabilidade (TRT-18/2023). A redação do art. 163 foi alterada pela Lei 14.457/2022 (prevenção ao assédio)."
+ },
+ "trabalho-7": {
+  "disciplina": "trabalho",
+  "numero": 7,
+  "titulo": "CLT, arts. 443, §3º, e 452-A (trabalho intermitente)",
+  "incidencia": "Direito do Trabalho – incidência Altíssima",
+  "caiuEm": "8 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "STF julgou o contrato intermitente constitucional (ADIs 5826, 5829 e 6154)."
+ },
+ "trabalho-8": {
+  "disciplina": "trabalho",
+  "numero": 8,
+  "titulo": "CLT, art. 4º, §2º, e art. 58, §§1º e 2º (tempo à disposição e deslocamento)",
+  "incidencia": "Direito do Trabalho – incidência Alta",
+  "caiuEm": "7 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Horas in itinere apareceram em 3 cadernos (inclusive barco fornecido pelo empregador): resposta pela CLT atual. Súmulas 90, 320, 366, 429 e 449 canceladas em 2025."
+ },
+ "trabalho-9": {
+  "disciplina": "trabalho",
+  "numero": 9,
+  "titulo": "CLT, arts. 611-A e 611-B + STF, Tema 1046 (negociado sobre o legislado)",
+  "incidencia": "Direito do Trabalho – incidência Alta",
+  "caiuEm": "7 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Tema 1046: normas coletivas que limitam direitos são válidas sem contrapartida, respeitados os absolutamente indisponíveis. Súmulas 375 e 423 caíram por isso."
+ },
+ "trabalho-10": {
+  "disciplina": "trabalho",
+  "numero": 10,
+  "titulo": "CLT, arts. 372 a 400 (trabalho da mulher)",
+  "incidencia": "Direito do Trabalho – incidência Alta",
+  "caiuEm": "6 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Art. 384 (descanso de 15 minutos antes da hora extra) revogado e usado como alternativa errada (TRT-1/2025). ADI 5938: afastamento da gestante de atividade insalubre independe de atestado."
+ },
+ "trabalho-11": {
+  "disciplina": "trabalho",
+  "numero": 11,
+  "titulo": "Lei 14.457/2022 (Programa Emprega + Mulheres)",
+  "incidencia": "Direito do Trabalho – incidência Alta",
+  "caiuEm": "6 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Lei de 2022 já cobrada em 6 cadernos, de 2023 a 2025. Os prazos de idade (2º ano, 4 anos, 5 anos e 11 meses, 6 anos) são a pegadinha."
+ },
+ "trabalho-12": {
+  "disciplina": "trabalho",
+  "numero": 12,
+  "titulo": "CLT, art. 461 + Súmulas 6, 127 e 455 do TST (equiparação salarial)",
+  "incidencia": "Direito do Trabalho – incidência Alta",
+  "caiuEm": "6 de 25 cadernos",
+  "vigencia": "Cancelada em parte",
+  "atencao": "Súmula 6: itens I, II, VI (b) e X cancelados em 2025. Questões ainda trazem 'mesma região metropolitana' (antigo item X) como alternativa errada. Lei 14.611/2023 alterou o art. 461."
+ },
+ "trabalho-13": {
+  "disciplina": "trabalho",
+  "numero": 13,
+  "titulo": "Lei 8.036/1990, arts. 15, 18 e 20 + OJ 361 da SDI-1 (FGTS)",
+  "incidencia": "Direito do Trabalho – incidência Alta",
+  "caiuEm": "6 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Prescrição do FGTS: Súmula 362. Saque-aniversário (Lei 13.932/2019) caiu em 2 cadernos."
+ },
+ "trabalho-14": {
+  "disciplina": "trabalho",
+  "numero": 14,
+  "titulo": "ADCT, art. 10, II, b + CLT, art. 391-A + Súmula 244 do TST (gestante)",
+  "incidencia": "Direito do Trabalho – incidência Alta",
+  "caiuEm": "6 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "STF, Tema 497. Item III da Súm. 244 (prazo determinado) segue, mas o TST afastou a estabilidade no trabalho temporário (IAC, Tema 2)."
+ },
+ "trabalho-15": {
+  "disciplina": "trabalho",
+  "numero": 15,
+  "titulo": "CLT, arts. 482 a 484 + Súmulas 14 e 73 do TST (justa causa, rescisão indireta e culpa recíproca)",
+  "incidencia": "Direito do Trabalho – incidência Alta",
+  "caiuEm": "5 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-16": {
+  "disciplina": "trabalho",
+  "numero": 16,
+  "titulo": "CLT, arts. 10, 10-A, 448 e 448-A + OJs 225, 261 e 411 da SDI-1 (sucessão e sócio retirante)",
+  "incidencia": "Direito do Trabalho – incidência Alta",
+  "caiuEm": "5 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-17": {
+  "disciplina": "trabalho",
+  "numero": 17,
+  "titulo": "CF, art. 8º + CLT, arts. 511 a 553 + Convenção 87 da OIT (organização sindical)",
+  "incidencia": "Direito do Trabalho – incidência Alta",
+  "caiuEm": "5 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Contribuição sindical facultativa (ADI 5794) e contribuição assistencial com direito de oposição (Tema 935)."
+ },
+ "trabalho-18": {
+  "disciplina": "trabalho",
+  "numero": 18,
+  "titulo": "CLT, art. 543 + Súmula 369 do TST + OJ 365 da SDI-1 (dirigente sindical)",
+  "incidencia": "Direito do Trabalho – incidência Alta",
+  "caiuEm": "5 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-19": {
+  "disciplina": "trabalho",
+  "numero": 19,
+  "titulo": "Lei 6.019/1974, arts. 2º a 19 (trabalho temporário)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-20": {
+  "disciplina": "trabalho",
+  "numero": 20,
+  "titulo": "Lei 9.029/1995 + Súmula 443 do TST (dispensa discriminatória)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-21": {
+  "disciplina": "trabalho",
+  "numero": 21,
+  "titulo": "CLT, arts. 223-A a 223-G (dano extrapatrimonial)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "STF (ADIs 6050, 6069 e 6082): as faixas são critério orientativo, não teto. A FCC já pediu 'conforme a CLT e a jurisprudência do STF' (TRT-20/2024)."
+ },
+ "trabalho-22": {
+  "disciplina": "trabalho",
+  "numero": 22,
+  "titulo": "CLT, arts. 450 e 468 + Súmula 372 do TST (alteração do contrato e reversão)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Cancelada em parte",
+  "atencao": "Súmula 372, item I (incorporação após 10 anos) cancelada em 2025."
+ },
+ "trabalho-23": {
+  "disciplina": "trabalho",
+  "numero": 23,
+  "titulo": "CLT, art. 2º, §§2º e 3º (grupo econômico)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Inclusão de empresa do grupo na execução: STF, Tema 1232 (aba de Processo)."
+ },
+ "trabalho-24": {
+  "disciplina": "trabalho",
+  "numero": 24,
+  "titulo": "CLT, arts. 2º e 3º + Súmula 386 e OJ 199 da SDI-1 (relação de emprego, trabalho proibido e ilícito)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Tema de estudo de caso (TRT-14/2022)."
+ },
+ "trabalho-25": {
+  "disciplina": "trabalho",
+  "numero": 25,
+  "titulo": "CLT, arts. 58, 58-A, 59-A, 61 e 62 (duração do trabalho e tempo parcial)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Súmula 444 (12x36) cancelada em 2025."
+ },
+ "trabalho-26": {
+  "disciplina": "trabalho",
+  "numero": 26,
+  "titulo": "CLT, art. 73 + Súmulas 60 e 265 e OJ 388 da SDI-1 (trabalho noturno)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Rural: Lei 5.889/1973 (21h–5h lavoura, 20h–4h pecuária, 25%) aparece como alternativa."
+ },
+ "trabalho-27": {
+  "disciplina": "trabalho",
+  "numero": 27,
+  "titulo": "CLT, arts. 59 e 59-B + Súmula 85 do TST (compensação e banco de horas)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Súmula 85 segue no livro, mas leia os itens IV e V com o art. 59-B."
+ },
+ "trabalho-28": {
+  "disciplina": "trabalho",
+  "numero": 28,
+  "titulo": "Lei 605/1949 + Súmula 172 do TST + OJ 394 da SDI-1 (repouso semanal remunerado)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "A OJ 394 foi alterada pelo TST em 2023 (IRR 10169-57.2013.5.05.0024): RSR majorado repercute nas demais parcelas para horas extras a partir de 20/03/2023. Duas questões de 2023/2025 cobraram essa mudança."
+ },
+ "trabalho-29": {
+  "disciplina": "trabalho",
+  "numero": 29,
+  "titulo": "CF, art. 7º, XXIX + CLT, art. 11 + Súmulas 308 e 362 e OJ 83 da SDI-1 (prescrição, quando cobrada em Direito do Trabalho)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Súmulas 268, 294 e 452 canceladas em 2025 (TRT-20/2024 e TRT-12/2023 ainda cobraram esses enunciados)."
+ },
+ "trabalho-30": {
+  "disciplina": "trabalho",
+  "numero": 30,
+  "titulo": "CF, art. 7º, IV e VI + CLT, arts. 76, 458 a 465 (salário mínimo, utilidades e proteção ao salário)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "4 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-31": {
+  "disciplina": "trabalho",
+  "numero": 31,
+  "titulo": "Leis 12.023/2009 e 12.815/2013 (trabalhador avulso e portuário)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Tema que não estava na lista anterior: apareceu em 3 cadernos (TRT-14/2022, TRT-21/2023, TRT- 15/2025)."
+ },
+ "trabalho-32": {
+  "disciplina": "trabalho",
+  "numero": 32,
+  "titulo": "CLT, arts. 487 a 491 + Lei 12.506/2011 + Súmulas 276, 305, 348, 369 e 371 do TST (aviso prévio)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "OJ 14 da SDI-1 (aviso cumprido em casa) cancelada em 2025."
+ },
+ "trabalho-33": {
+  "disciplina": "trabalho",
+  "numero": 33,
+  "titulo": "CLT, art. 477, §§6º e 8º + Súmula 462 do TST (pagamento das verbas rescisórias)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-34": {
+  "disciplina": "trabalho",
+  "numero": 34,
+  "titulo": "CLT, art. 71 (intervalo intrajornada)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Estudo de caso do TRT-1/2025 pediu o 'entendimento sumulado' (Súmula 437), cancelada em 30/06/2025. Daqui em diante vale o art. 71, §4º."
+ },
+ "trabalho-35": {
+  "disciplina": "trabalho",
+  "numero": 35,
+  "titulo": "CLT, arts. 469 e 470 + Súmula 43 e OJ 113 da SDI-1 (transferência)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-36": {
+  "disciplina": "trabalho",
+  "numero": 36,
+  "titulo": "Lei 8.213/1991, art. 118 + Súmula 378 do TST (estabilidade acidentária)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-37": {
+  "disciplina": "trabalho",
+  "numero": 37,
+  "titulo": "Lei 7.783/1989 + CF, art. 9º (greve)",
+  "incidencia": "Direito do Trabalho – incidência Média",
+  "caiuEm": "3 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-38": {
+  "disciplina": "trabalho",
+  "numero": 38,
+  "titulo": "CLT, arts. 154 a 201 (segurança e medicina do trabalho)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-39": {
+  "disciplina": "trabalho",
+  "numero": 39,
+  "titulo": "CLT, arts. 443, 445, 451, 452, 479 a 481 (prazo determinado)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-40": {
+  "disciplina": "trabalho",
+  "numero": 40,
+  "titulo": "CLT, arts. 457 e 466 + Lei 3.207/1957 + Súmula 340 do TST (remuneração, gorjetas e comissões)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-41": {
+  "disciplina": "trabalho",
+  "numero": 41,
+  "titulo": "CLT, art. 473 (faltas justificadas)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Licença-paternidade ampliada pela Lei 15.371/2026 a partir de 2027 (ver linha própria)."
+ },
+ "trabalho-42": {
+  "disciplina": "trabalho",
+  "numero": 42,
+  "titulo": "Lei 6.019/1974, arts. 4º-A a 5º-D + Súmula 331 do TST + STF, Temas 383, 725 e 1118 (terceirização)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Cancelada em parte",
+  "atencao": "Súmula 331, item I cancelado em 2025; OJ 383 da SDI-1 cancelada. Tema 1118 (2025): ônus da prova da culpa da Administração é do autor."
+ },
+ "trabalho-43": {
+  "disciplina": "trabalho",
+  "numero": 43,
+  "titulo": "CLT, arts. 510-A a 510-D (comissão de representantes dos empregados)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-44": {
+  "disciplina": "trabalho",
+  "numero": 44,
+  "titulo": "CLT, arts. 428 a 433 (aprendizagem)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "2 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-45": {
+  "disciplina": "trabalho",
+  "numero": 45,
+  "titulo": "Súmulas 132, 291, 376 e 428 do TST (horas extras e sobreaviso)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-46": {
+  "disciplina": "trabalho",
+  "numero": 46,
+  "titulo": "Súmulas 51 e 363 do TST (regulamento de empresa; contrato nulo)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-47": {
+  "disciplina": "trabalho",
+  "numero": 47,
+  "titulo": "CF, art. 7º, XIV + Súmula 360 do TST (turnos ininterruptos de revezamento)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Súmula 423 cancelada em 2025."
+ },
+ "trabalho-48": {
+  "disciplina": "trabalho",
+  "numero": 48,
+  "titulo": "CLT, arts. 471 a 476-A (suspensão e interrupção)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-49": {
+  "disciplina": "trabalho",
+  "numero": 49,
+  "titulo": "CLT, arts. 444, parágrafo único, e 507-A (hipersuficiente e arbitragem)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-50": {
+  "disciplina": "trabalho",
+  "numero": 50,
+  "titulo": "CLT, art. 8º (fontes e princípios)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-51": {
+  "disciplina": "trabalho",
+  "numero": 51,
+  "titulo": "CLT, arts. 625-A a 625-H (comissão de conciliação prévia)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "Passagem pela comissão é facultativa (ADIs 2139 e 2160)."
+ },
+ "trabalho-52": {
+  "disciplina": "trabalho",
+  "numero": 52,
+  "titulo": "CLT, arts. 611 a 620 (convenção e acordo coletivo)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Súmula 277 (ultratividade) cancelada em 2025."
+ },
+ "trabalho-53": {
+  "disciplina": "trabalho",
+  "numero": 53,
+  "titulo": "CLT, arts. 13 a 40 (CTPS)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Redação da Lei 13.874/2019."
+ },
+ "trabalho-54": {
+  "disciplina": "trabalho",
+  "numero": 54,
+  "titulo": "CF, art. 7º, parágrafo único + LC 150/2015 (doméstico)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-55": {
+  "disciplina": "trabalho",
+  "numero": 55,
+  "titulo": "CLT, arts. 501 a 504 (força maior)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-56": {
+  "disciplina": "trabalho",
+  "numero": 56,
+  "titulo": "OJ 191 da SDI-1 + Súmula 159 do TST (dono da obra; substituição)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-57": {
+  "disciplina": "trabalho",
+  "numero": 57,
+  "titulo": "CLT, arts. 477-A e 477-B + STF, Tema 638 (dispensa coletiva)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente com ressalva",
+  "atencao": "OJ 270 da SDI-1 (PDV) cancelada em 2025."
+ },
+ "trabalho-58": {
+  "disciplina": "trabalho",
+  "numero": 58,
+  "titulo": "Leis 4.090/1962 e 4.749/1965 + Súmula 253 do TST (13º salário)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": ""
+ },
+ "trabalho-59": {
+  "disciplina": "trabalho",
+  "numero": 59,
+  "titulo": "CF, art. 7º, XXXIII + CLT, arts. 402 a 441 (trabalho do menor)",
+  "incidencia": "Direito do Trabalho – incidência Baixa",
+  "caiuEm": "1 de 25 cadernos",
+  "vigencia": "Vigente",
+  "atencao": "Apareceu no estudo de caso do TRT-14/2022."
+ }
+}

@@ -24,6 +24,9 @@ import pdfplumber
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DADOS = os.path.join(RAIZ, "dados")
 SAIDA = os.path.join(DADOS, "textos.json")
+# quadro de cada ponto (título, incidência, caiu em, status, atenção): usado para criar os pontos
+# de matérias que ainda não têm aba na planilha
+SAIDA_QUADROS = os.path.join(DADOS, "quadros.json")
 
 # Começo de dispositivo: força quebra de parágrafo
 ESTRUTURA = re.compile(
@@ -109,7 +112,7 @@ def processar(caminhos, abas_para_chave):
         ls = list(linhas(pdfplumber.open(caminho)))
         # capa: 2ª linha com o nome da aba (ex.: "Direitos Humanos") define a matéria
         titulo_aba = ls[1]["t"] if len(ls) > 1 and ls[0]["tam"] >= 16.0 else ""
-        d = abas_para_chave.get(norm(titulo_aba))
+        d = abas_para_chave.get(norm(titulo_aba)) or disciplina_do_bloco(titulo_aba, abas_para_chave)
         if titulo_aba:
             # capa de um novo vade mecum: encerra o ponto anterior (a matéria pode vir depois, nos blocos)
             todas.append({"t": titulo_aba, "tam": 99.0, "negrito": True, "capa": True, "disc": d, "x0": 0, "x1": 0})
@@ -117,6 +120,7 @@ def processar(caminhos, abas_para_chave):
     disc_atual = None
     caminho = " + ".join(os.path.basename(c) for c in caminhos)
 
+    incidencia = ""
     secoes = {}  # (disciplina, numero) -> {"titulo", "campos", "corpo"}
     atual = None
     campo = None
@@ -126,11 +130,14 @@ def processar(caminhos, abas_para_chave):
         if l.get("capa"):
             disc_atual = l["disc"]
             atual = None
+            incidencia = ""
             continue
         if l["tam"] >= 16.0 and l["negrito"]:
             d = disciplina_do_bloco(t, abas_para_chave)
             if d:
                 disc_atual = d
+            if "incidencia" in norm(t) or "nao caiu" in norm(t):
+                incidencia = t
             continue
         if l["tam"] <= 8.0 or l["tam"] > 16.0:
             continue  # rodapé e capa
@@ -141,7 +148,7 @@ def processar(caminhos, abas_para_chave):
                 atual = None
                 continue
             n = int(m.group(1))
-            atual = secoes.setdefault((disc_atual, n), {"titulo": m.group(2), "campos": {}, "corpo": []})
+            atual = secoes.setdefault((disc_atual, n), {"titulo": m.group(2), "campos": {}, "corpo": [], "incidencia": incidencia})
             campo = None
             continue
         if atual is None:
@@ -170,7 +177,7 @@ def processar(caminhos, abas_para_chave):
         else:
             atual["corpo"].append(("texto", l))
 
-    textos, conferencia = {}, {}
+    textos, conferencia, quadros = {}, {}, {}
     for (disc, n), s in sorted(secoes.items()):
         chave = f"{disc}-{n}"
         partes = []
@@ -180,11 +187,16 @@ def processar(caminhos, abas_para_chave):
         partes += montar_paragrafos(s["corpo"])
         textos[chave] = "\n\n".join(partes).strip()
         conferencia[chave] = s["campos"].get("Na planilha", s["titulo"])
+        quadros[chave] = {
+            "disciplina": disc, "numero": n, "titulo": conferencia[chave], "incidencia": s["incidencia"],
+            "caiuEm": s["campos"].get("Caiu em", ""), "vigencia": s["campos"].get("Status", ""),
+            "atencao": s["campos"].get("Atenção", ""),
+        }
     contagem = {}
     for disc, _ in secoes:
         contagem[disc] = contagem.get(disc, 0) + 1
     print(f"{caminho}: " + ", ".join(f"{d}: {c} pontos" for d, c in contagem.items()))
-    return textos, conferencia
+    return textos, conferencia, quadros
 
 
 def main():
@@ -203,11 +215,13 @@ def main():
     textos = {}
     arquivos = sorted(glob.glob(os.path.join(DADOS, "vade_mecum", "*.pdf")), key=chave_natural)
     if arquivos:
-        t, conf = processar(arquivos, abas)
+        t, conf, quadros = processar(arquivos, abas)
+        with open(SAIDA_QUADROS, "w", encoding="utf-8") as f:
+            json.dump(quadros, f, ensure_ascii=False, indent=1)
         for chave, na_planilha in conf.items():
             titulo = seed_titulos.get(chave)
             if titulo is None:
-                print(f"  !! {chave}: ponto não existe na planilha", file=sys.stderr)
+                print(f"  -- {chave}: sem aba na planilha (o ponto será criado a partir do PDF)")
             elif norm(titulo)[:25] != norm(na_planilha)[:25]:
                 print(f"  ?? {chave}: planilha='{titulo[:60]}' / pdf='{na_planilha[:60]}'", file=sys.stderr)
         textos.update(t)
