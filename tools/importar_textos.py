@@ -95,13 +95,25 @@ def disciplina_do_bloco(texto, abas_para_chave):
     return abas_para_chave.get(norm(nome))
 
 
-def processar(caminho, abas_para_chave):
-    pdf = pdfplumber.open(caminho)
-    todas = list(linhas(pdf))
-    titulo_aba = todas[1]["t"] if len(todas) > 1 else ""
-    disc_arquivo = abas_para_chave.get(norm(titulo_aba))
-    # arquivo com várias matérias: a matéria vem nos blocos "<Matéria> – incidência ..."
-    disc_atual = disc_arquivo
+def chave_natural(caminho):
+    """Ordena 'parte2' antes de 'parte10'."""
+    return [int(x) if x.isdigit() else x.lower() for x in re.split(r"(\d+)", os.path.basename(caminho))]
+
+
+def processar(caminhos, abas_para_chave):
+    """Processa os PDFs em sequência, como um documento só: um PDF dividido em partes
+    (ex.: ..._parte1.pdf, ..._parte2.pdf) continua o ponto que ficou no meio."""
+    todas = []
+    for caminho in caminhos:
+        ls = list(linhas(pdfplumber.open(caminho)))
+        # capa: 2ª linha com o nome da aba (ex.: "Direitos Humanos") define a matéria
+        titulo_aba = ls[1]["t"] if len(ls) > 1 and ls[0]["tam"] >= 16.0 else ""
+        d = abas_para_chave.get(norm(titulo_aba))
+        if d:
+            todas.append({"t": titulo_aba, "tam": 99.0, "negrito": True, "disc": d, "x0": 0, "x1": 0})
+        todas.extend(ls)
+    disc_atual = None
+    caminho = " + ".join(os.path.basename(c) for c in caminhos)
 
     secoes = {}  # (disciplina, numero) -> {"titulo", "campos", "corpo"}
     atual = None
@@ -109,6 +121,9 @@ def processar(caminho, abas_para_chave):
     margem = max([l["x1"] for l in todas if l["tam"] == 10.0] or [540])
     for l in todas:
         t = l["t"]
+        if l.get("disc"):
+            disc_atual = l["disc"]
+            continue
         if l["tam"] >= 16.0 and l["negrito"]:
             d = disciplina_do_bloco(t, abas_para_chave)
             if d:
@@ -119,7 +134,7 @@ def processar(caminho, abas_para_chave):
         m = re.match(r"^(\d+)\. (.+)$", t)
         if l["negrito"] and l["tam"] == 13.0 and m:
             if not disc_atual:
-                print(f"!! {os.path.basename(caminho)}: seção '{t}' sem matéria identificada", file=sys.stderr)
+                print(f"!! {caminho}: seção '{t}' sem matéria identificada", file=sys.stderr)
                 atual = None
                 continue
             n = int(m.group(1))
@@ -165,7 +180,7 @@ def processar(caminho, abas_para_chave):
     contagem = {}
     for disc, _ in secoes:
         contagem[disc] = contagem.get(disc, 0) + 1
-    print(f"{os.path.basename(caminho)}: " + ", ".join(f"{d}: {c} pontos" for d, c in contagem.items()))
+    print(f"{caminho}: " + ", ".join(f"{d}: {c} pontos" for d, c in contagem.items()))
     return textos, conferencia
 
 
@@ -183,8 +198,9 @@ def main():
         seed_titulos = {p["chave"]: p["titulo"] for p in json.load(open(seed, encoding="utf-8"))["pontos"]}
 
     textos = {}
-    for caminho in sorted(glob.glob(os.path.join(DADOS, "vade_mecum", "*.pdf"))):
-        t, conf = processar(caminho, abas)
+    arquivos = sorted(glob.glob(os.path.join(DADOS, "vade_mecum", "*.pdf")), key=chave_natural)
+    if arquivos:
+        t, conf = processar(arquivos, abas)
         for chave, na_planilha in conf.items():
             titulo = seed_titulos.get(chave)
             if titulo is None:
