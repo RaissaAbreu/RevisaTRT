@@ -8,6 +8,8 @@ import androidx.room.Query
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.Update
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -120,9 +122,19 @@ interface EstudoDao {
     suspend fun inserirAnotacoes(l: List<Anotacao>)
 }
 
+/** v2: tamanho da amostra por disciplina e coluna de provas fora da contagem. */
+val MIGRACAO_1_2 = object : Migration(1, 2) {
+    override fun migrate(db: SupportSQLiteDatabase) {
+        db.execSQL("ALTER TABLE disciplina ADD COLUMN totalCadernos INTEGER NOT NULL DEFAULT 0")
+        db.execSQL("ALTER TABLE disciplina ADD COLUMN totalAJ INTEGER NOT NULL DEFAULT 0")
+        db.execSQL("ALTER TABLE disciplina ADD COLUMN totalOJ INTEGER NOT NULL DEFAULT 0")
+        db.execSQL("ALTER TABLE ponto ADD COLUMN outrasProvas TEXT NOT NULL DEFAULT ''")
+    }
+}
+
 @Database(
     entities = [Disciplina::class, Ponto::class, Revisao::class, Anotacao::class],
-    version = 1,
+    version = 2,
     exportSchema = true,
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -131,8 +143,12 @@ abstract class AppDatabase : RoomDatabase() {
     companion object {
         @Volatile private var instancia: AppDatabase? = null
 
+        /** Só para testes: fecha e descarta a instância. */
+        fun descartar() = synchronized(this) { instancia?.close(); instancia = null }
+
         fun get(context: Context): AppDatabase = instancia ?: synchronized(this) {
             instancia ?: Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, "revisatrt.db")
+                .addMigrations(MIGRACAO_1_2)
                 .build().also { instancia = it }
         }
     }

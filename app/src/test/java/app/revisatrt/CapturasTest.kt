@@ -43,7 +43,7 @@ class CapturasTest {
         runBlocking {
             repo.sincronizarBase()
             val pontos = repo.dao.todosPontos().associateBy { it.chave }
-            assertEquals(116, pontos.size)
+            assertEquals(269, pontos.size)
             val agora = System.currentTimeMillis()
             fun rev(chave: String, diasAtras: Long, av: Int) = Revisao(pontoId = pontos[chave]!!.id, data = agora - diasAtras * dia, avaliacao = av)
             repo.dao.inserirRevisoes(

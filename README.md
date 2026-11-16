@@ -35,7 +35,7 @@ A base fica em `dados/`:
 - `dados/edital.json`: disciplinas e conteúdo programático.
 - `dados/*.xlsx`: uma aba por disciplina (nome da aba = nome da disciplina ou campo `planilha` em `edital.json`), com as colunas
   `# | Dispositivo | O que a FCC cobra | Incidência | Cadernos (de 25) | Questões | Área Judiciária (de 15) | Oficial de Justiça (de 10) | Status | Atenção: vigência e pegadinhas | Onde caiu`
-  e, opcionalmente, `Texto completo`.
+  e, opcionalmente, `TRF-3, TRF-4 e TJ-CE (fora da contagem)` e `Texto completo`. O "(de N)" dos cabeçalhos vira o tamanho da amostra mostrado no app.
 
 Depois de alterar, aumente `SEED_VERSION` em `tools/gerar_seed.py` e rode:
 

@@ -145,10 +145,11 @@ fun PontoTela(id: Long, nav: Nav) {
                     EtiquetaAtraso(Analise.faixaAtraso(ultima?.data))
                     if (p.vigencia.isNotBlank()) Etiqueta(p.vigencia, MaterialTheme.colorScheme.surfaceVariant, MaterialTheme.colorScheme.onSurfaceVariant)
                 }
-                if (p.cadernos > 0 || p.questoes > 0) {
+                if (disc != null && disc.totalCadernos > 0) {
                     Spacer(Modifier.height(8.dp))
                     Text(
-                        "Caiu em ${p.cadernos} de 25 cadernos · ${p.questoes} questões · Área Judiciária ${p.areaJudiciaria}/15 · Oficial de Justiça ${p.oficialJustica}/10",
+                        "Caiu em ${p.cadernos} de ${disc.totalCadernos} cadernos · ${p.questoes} questões · " +
+                            "Área Judiciária ${p.areaJudiciaria}/${disc.totalAJ} · Oficial de Justiça ${p.oficialJustica}/${disc.totalOJ}",
                         style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
@@ -215,7 +216,7 @@ fun PontoTela(id: Long, nav: Nav) {
                     }
                 }
             }
-            if (p.ondeCaiu.isNotBlank()) item {
+            if (p.ondeCaiu.isNotBlank() || p.outrasProvas.isNotBlank()) item {
                 Column(
                     Modifier.fillMaxWidth().clip(RoundedCornerShape(18.dp))
                         .background(MaterialTheme.colorScheme.surfaceContainerLowest)
@@ -226,8 +227,15 @@ fun PontoTela(id: Long, nav: Nav) {
                         Icon(if (ondeAberto) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown, null)
                     }
                     if (ondeAberto) {
-                        Spacer(Modifier.height(6.dp))
-                        Text(p.ondeCaiu.replace("; ", "\n"), style = MaterialTheme.typography.bodySmall)
+                        if (p.ondeCaiu.isNotBlank()) {
+                            Spacer(Modifier.height(6.dp))
+                            Text(p.ondeCaiu.replace("; ", "\n"), style = MaterialTheme.typography.bodySmall)
+                        }
+                        if (p.outrasProvas.isNotBlank()) {
+                            Spacer(Modifier.height(10.dp))
+                            Text("TRF-3, TRF-4 e TJ-CE (fora da contagem)", style = MaterialTheme.typography.labelMedium, fontWeight = FontWeight.SemiBold)
+                            Text(p.outrasProvas, style = MaterialTheme.typography.bodySmall)
+                        }
                     }
                 }
             }

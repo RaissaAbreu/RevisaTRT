@@ -14,6 +14,9 @@ private data class SeedDisciplina(
     val grupo: String,
     val ordem: Int,
     val edital: String = "",
+    val totalCadernos: Int = 0,
+    val totalAJ: Int = 0,
+    val totalOJ: Int = 0,
 )
 
 @Serializable
@@ -31,6 +34,7 @@ private data class SeedPonto(
     val vigencia: String = "",
     val atencao: String = "",
     val ondeCaiu: String = "",
+    val outrasProvas: String = "",
     val textoLei: String = "",
 )
 
@@ -85,10 +89,18 @@ class Repositorio(private val context: Context) {
                 val atual = existentes[d.chave]
                 if (atual == null) {
                     idPorChave[d.chave] = dao.inserirDisciplina(
-                        Disciplina(chave = d.chave, nome = d.nome, grupo = d.grupo, ordem = d.ordem, edital = d.edital)
+                        Disciplina(
+                            chave = d.chave, nome = d.nome, grupo = d.grupo, ordem = d.ordem, edital = d.edital,
+                            totalCadernos = d.totalCadernos, totalAJ = d.totalAJ, totalOJ = d.totalOJ,
+                        )
                     )
                 } else {
-                    dao.atualizarDisciplina(atual.copy(nome = d.nome, grupo = d.grupo, ordem = d.ordem, edital = d.edital))
+                    dao.atualizarDisciplina(
+                        atual.copy(
+                            nome = d.nome, grupo = d.grupo, ordem = d.ordem, edital = d.edital,
+                            totalCadernos = d.totalCadernos, totalAJ = d.totalAJ, totalOJ = d.totalOJ,
+                        )
+                    )
                     idPorChave[d.chave] = atual.id
                 }
             }
@@ -102,7 +114,8 @@ class Repositorio(private val context: Context) {
                             chave = p.chave, disciplinaId = discId, ordem = p.ordem, titulo = p.titulo,
                             oQueCai = p.oQueCai, importancia = p.importancia, cadernos = p.cadernos,
                             questoes = p.questoes, areaJudiciaria = p.areaJudiciaria, oficialJustica = p.oficialJustica,
-                            vigencia = p.vigencia, atencao = p.atencao, ondeCaiu = p.ondeCaiu, textoLei = p.textoLei,
+                            vigencia = p.vigencia, atencao = p.atencao, ondeCaiu = p.ondeCaiu,
+                            outrasProvas = p.outrasProvas, textoLei = p.textoLei,
                         )
                     )
                 } else {
@@ -115,6 +128,8 @@ class Repositorio(private val context: Context) {
                             vigencia = p.vigencia, atencao = p.atencao, ondeCaiu = p.ondeCaiu,
                         )
                     }
+                    // dado informativo da planilha (não editável no app): sempre atualiza
+                    if (novo.outrasProvas != p.outrasProvas) novo = novo.copy(outrasProvas = p.outrasProvas)
                     if (novo.textoLei.isBlank() && p.textoLei.isNotBlank()) novo = novo.copy(textoLei = p.textoLei)
                     if (novo != atual) dao.atualizarPonto(novo)
                 }

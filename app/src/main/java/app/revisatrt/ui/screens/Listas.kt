@@ -212,7 +212,7 @@ fun BuscaTela(nav: Nav) {
         val p = r.ponto
         val campos = listOf(
             "título" to p.titulo, "o que a FCC cobra" to p.oQueCai, "pegadinhas" to p.atencao,
-            "texto da lei" to p.textoLei, "onde caiu" to p.ondeCaiu, "vigência" to p.vigencia,
+            "texto da lei" to p.textoLei, "onde caiu" to p.ondeCaiu + " " + p.outrasProvas, "vigência" to p.vigencia,
         ) + notasPorPonto[p.id].orEmpty().map { "anotação" to it.texto }
         val tudo = Analise.normalizar(campos.joinToString(" ") { it.second })
         if (palavras.all { it in tudo }) {

@@ -17,6 +17,10 @@ data class Disciplina(
     val grupo: String,
     val ordem: Int,
     val edital: String = "",
+    /** Tamanho da amostra de provas analisadas (ex.: 25 cadernos, 15 de Área Judiciária, 10 de Oficial de Justiça). */
+    @ColumnInfo(defaultValue = "0") val totalCadernos: Int = 0,
+    @ColumnInfo(defaultValue = "0") val totalAJ: Int = 0,
+    @ColumnInfo(defaultValue = "0") val totalOJ: Int = 0,
 )
 
 /** Um ponto de estudo: artigo(s), súmula, OJ, tese etc. */
@@ -46,6 +50,8 @@ data class Ponto(
     val vigencia: String = "",
     val atencao: String = "",
     val ondeCaiu: String = "",
+    /** Questões em provas fora da contagem (TRF-3, TRF-4, TJ-CE). */
+    @ColumnInfo(defaultValue = "") val outrasProvas: String = "",
     val textoLei: String = "",
     val favorito: Boolean = false,
     /** Usuário editou o conteúdo: atualizações da base não sobrescrevem. */
