@@ -8,6 +8,7 @@ import app.revisatrt.data.AjustesRepo
 import app.revisatrt.data.AppDatabase
 import app.revisatrt.data.MIGRACAO_1_2
 import app.revisatrt.data.MIGRACAO_2_3
+import app.revisatrt.data.MIGRACAO_3_4
 import app.revisatrt.data.Repositorio
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -48,7 +49,7 @@ class MigracaoTest {
             execSQL("INSERT INTO anotacao (pontoId, texto, criadaEm) VALUES (1, 'minha anotação', 1000)")
             close()
         }
-        helper.runMigrationsAndValidate(nome, 3, true, MIGRACAO_1_2, MIGRACAO_2_3).close()
+        helper.runMigrationsAndValidate(nome, 4, true, MIGRACAO_1_2, MIGRACAO_2_3, MIGRACAO_3_4).close()
 
         val ctx = ApplicationProvider.getApplicationContext<Application>()
         runBlocking {
@@ -66,7 +67,14 @@ class MigracaoTest {
             assertTrue(p1.favorito)
             assertEquals("texto colado por mim", p1.textoLei)
             assertEquals("Meu título editado", porChave["trabalho-2"]!!.titulo) // edição preservada
-            assertTrue(pontos.any { it.chave == null && it.titulo == "Ponto criado no app" })
+            val criado = pontos.first { it.titulo == "Ponto criado no app" }
+            assertTrue(criado.chave!!.startsWith("usuario-") && criado.pendente)
+
+            // sincronização: tudo o que já existia fica pendente para subir, com identificador único
+            val revs = repo.dao.todasRevisoes()
+            assertTrue(revs.all { it.pendente && it.uuid.length == 32 })
+            assertEquals(3, revs.map { it.uuid }.toSet().size)
+            assertTrue(p1.pendente) // favorito
 
             assertEquals(3, repo.dao.todasRevisoes().size)
             assertEquals(1, repo.dao.todasAnotacoes().size)

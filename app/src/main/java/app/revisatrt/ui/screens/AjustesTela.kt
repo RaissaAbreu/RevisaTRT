@@ -58,6 +58,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import app.revisatrt.BuildConfigInfo
+import app.revisatrt.RevisaApp
+import app.revisatrt.data.Analise
 import app.revisatrt.data.Ajustes
 import app.revisatrt.data.CorTema
 import app.revisatrt.data.Lembrete
@@ -199,6 +201,9 @@ fun AjustesTela() {
                 ) { Icon(Icons.Filled.Add, null); Spacer(Modifier.width(6.dp)); Text("Adicionar lembrete") }
             }
 
+            item { TituloSecao("Sincronização entre aparelhos") }
+            item { CartaoSync() }
+
             item { TituloSecao("Backup") }
             item {
                 Text(
@@ -281,5 +286,54 @@ private fun LinhaSwitch(rotulo: String, valor: Boolean, enabled: Boolean = true,
     ) {
         Text(rotulo, modifier = Modifier.weight(1f), style = MaterialTheme.typography.bodyMedium)
         Switch(checked = valor, onCheckedChange = onChange, enabled = enabled)
+    }
+}
+
+@Composable
+private fun CartaoSync() {
+    val contexto = LocalContext.current
+    val app = contexto.applicationContext as RevisaApp
+    val estado by app.sync.estado.collectAsStateWithLifecycle()
+    val pendentes by app.repo.dao.totalPendentes().collectAsStateWithLifecycle(0)
+    val escopo = rememberCoroutineScope()
+    Column(
+        Modifier.fillMaxWidth().clip(RoundedCornerShape(16.dp))
+            .background(MaterialTheme.colorScheme.surfaceContainerLowest).padding(14.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        when {
+            !estado.configurado -> Text(
+                "A sincronização ainda não foi configurada nesta versão do app (falta o arquivo do Firebase).",
+                style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            estado.email == null -> {
+                Text(
+                    "Entre com a sua conta Google para manter revisões, anotações e favoritos iguais no celular e no tablet. " +
+                        "Use a mesma conta nos dois aparelhos.",
+                    style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                FilledTonalButton(
+                    onClick = { (contexto as? android.app.Activity)?.let { act -> escopo.launch { app.sync.entrar(act) } } },
+                    modifier = Modifier.fillMaxWidth(),
+                ) { Text("Entrar com Google") }
+            }
+            else -> {
+                Text("Conectada como ${estado.email}", style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold)
+                Text(
+                    when {
+                        estado.sincronizando -> "Sincronizando…"
+                        pendentes > 0 -> "$pendentes alteração(ões) aguardando envio"
+                        estado.ultima != null -> "Tudo sincronizado · ${Analise.dataHora(estado.ultima!!)}"
+                        else -> "Conectada"
+                    },
+                    style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                    FilledTonalButton(onClick = { escopo.launch { app.sync.sincronizarAgora() } }, modifier = Modifier.weight(1f)) { Text("Sincronizar agora") }
+                    OutlinedButton(onClick = { app.sync.sair() }, modifier = Modifier.weight(1f)) { Text("Sair") }
+                }
+            }
+        }
+        estado.erro?.let { Text(it, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.error) }
     }
 }

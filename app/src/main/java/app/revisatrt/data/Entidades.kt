@@ -61,6 +61,9 @@ data class Ponto(
     /** Ponto da base que o usuário apagou (fica oculto para não voltar na próxima atualização). */
     val oculto: Boolean = false,
     val criadoEm: Long = System.currentTimeMillis(),
+    /** Última alteração feita pela usuária (favorito, edição, exclusão), para sincronizar. */
+    @ColumnInfo(defaultValue = "0") val atualizadoEm: Long = 0,
+    @ColumnInfo(defaultValue = "0") val pendente: Boolean = false,
 )
 
 object Avaliacao {
@@ -80,7 +83,7 @@ object Avaliacao {
 @Serializable
 @Entity(
     tableName = "revisao",
-    indices = [Index("pontoId"), Index("data")],
+    indices = [Index("pontoId"), Index("data"), Index(value = ["uuid"], unique = true)],
     foreignKeys = [ForeignKey(
         entity = Ponto::class, parentColumns = ["id"], childColumns = ["pontoId"],
         onDelete = ForeignKey.CASCADE,
@@ -91,12 +94,21 @@ data class Revisao(
     val pontoId: Long,
     val data: Long,
     val avaliacao: Int,
+    /** Identificador igual em todos os aparelhos (sincronização). */
+    @ColumnInfo(defaultValue = "") val uuid: String = novoUuid(),
+    /** Apagada: fica marcada para o apagamento chegar aos outros aparelhos. */
+    @ColumnInfo(defaultValue = "0") val apagada: Boolean = false,
+    @ColumnInfo(defaultValue = "0") val atualizadoEm: Long = System.currentTimeMillis(),
+    /** Alteração local ainda não enviada para a nuvem. */
+    @ColumnInfo(defaultValue = "1") val pendente: Boolean = true,
 )
+
+fun novoUuid(): String = java.util.UUID.randomUUID().toString().replace("-", "")
 
 @Serializable
 @Entity(
     tableName = "anotacao",
-    indices = [Index("pontoId")],
+    indices = [Index("pontoId"), Index(value = ["uuid"], unique = true)],
     foreignKeys = [ForeignKey(
         entity = Ponto::class, parentColumns = ["id"], childColumns = ["pontoId"],
         onDelete = ForeignKey.CASCADE,
@@ -108,6 +120,10 @@ data class Anotacao(
     val texto: String,
     val criadaEm: Long,
     val editadaEm: Long? = null,
+    @ColumnInfo(defaultValue = "") val uuid: String = novoUuid(),
+    @ColumnInfo(defaultValue = "0") val apagada: Boolean = false,
+    @ColumnInfo(defaultValue = "0") val atualizadoEm: Long = System.currentTimeMillis(),
+    @ColumnInfo(defaultValue = "1") val pendente: Boolean = true,
 )
 
 /** Ponto com dados agregados de revisão. */

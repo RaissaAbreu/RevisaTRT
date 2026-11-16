@@ -104,7 +104,7 @@ fun EditarPontoTela(id: Long, disciplinaInicial: Long, nav: Nav) {
             OutlinedTextField(atencao, { atencao = it }, Modifier.fillMaxWidth(), label = { Text("Atenção: pegadinhas") }, minLines = 2)
             OutlinedTextField(textoLei, { textoLei = it }, Modifier.fillMaxWidth(), label = { Text("Texto da lei (completo)") }, minLines = 5)
             OutlinedTextField(ondeCaiu, { ondeCaiu = it }, Modifier.fillMaxWidth(), label = { Text("Onde caiu") }, minLines = 2)
-            if (base != null) Text(
+            if (base != null && base?.startsWith("usuario-") == false) Text(
                 "Este ponto veio da sua planilha. Depois de editado, futuras atualizações da base não vão sobrescrever o que você mudou.",
                 style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
             )

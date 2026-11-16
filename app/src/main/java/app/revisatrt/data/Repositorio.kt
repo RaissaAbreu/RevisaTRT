@@ -148,27 +148,30 @@ class Repositorio(private val context: Context) {
     suspend fun favoritar(pontoId: Long, fav: Boolean) = dao.marcarFavorito(pontoId, fav)
 
     suspend fun salvarAnotacao(pontoId: Long, texto: String, existente: Anotacao?) {
+        val agora = System.currentTimeMillis()
         if (existente == null) {
-            dao.inserirAnotacao(Anotacao(pontoId = pontoId, texto = texto, criadaEm = System.currentTimeMillis()))
+            dao.inserirAnotacao(Anotacao(pontoId = pontoId, texto = texto, criadaEm = agora, atualizadoEm = agora))
         } else {
-            dao.atualizarAnotacao(existente.copy(texto = texto, editadaEm = System.currentTimeMillis()))
+            dao.atualizarAnotacao(existente.copy(texto = texto, editadaEm = agora, atualizadoEm = agora, pendente = true))
         }
     }
 
     suspend fun apagarAnotacao(id: Long) = dao.apagarAnotacao(id)
 
     suspend fun salvarTextoLei(p: Ponto, texto: String) {
-        if (texto != p.textoLei) dao.atualizarPonto(p.copy(textoLei = texto, textoEditado = true))
+        if (texto != p.textoLei) dao.atualizarPonto(alterado(p.copy(textoLei = texto, textoEditado = true)))
     }
+
+    /** Marca o ponto como alterado pela usuária (vai para a nuvem). */
+    private fun alterado(p: Ponto) = p.copy(atualizadoEm = System.currentTimeMillis(), pendente = true)
 
     suspend fun salvarPonto(p: Ponto): Long =
-        if (p.id == 0L) dao.inserirPonto(p) else {
-            dao.atualizarPonto(p.copy(editado = p.chave != null || p.editado)); p.id
+        if (p.id == 0L) dao.inserirPonto(alterado(p.copy(chave = p.chave ?: "usuario-${novoUuid()}"))) else {
+            dao.atualizarPonto(alterado(p.copy(editado = true))); p.id
         }
 
-    suspend fun apagarPonto(p: Ponto) {
-        if (p.chave == null) dao.apagarPonto(p.id) else dao.atualizarPonto(p.copy(oculto = true))
-    }
+    /** Apagar = ocultar, para o apagamento chegar aos outros aparelhos. */
+    suspend fun apagarPonto(p: Ponto) = dao.atualizarPonto(alterado(p.copy(oculto = true)))
 
     suspend fun salvarAjustes(a: Ajustes) = ajustesRepo.salvar(a)
 
@@ -203,6 +206,9 @@ class Repositorio(private val context: Context) {
             dao.inserirAnotacoes(b.anotacoes)
         }
         b.ajustes?.let { ajustesRepo.salvar(it) }
+        // o que veio do backup também sobe para a nuvem
+        dao.marcarRevisoesPendentes()
+        dao.marcarAnotacoesPendentes()
         ajustesRepo.salvarVersaoSeed(b.versaoSeed)
         // Se o app tiver uma base mais nova que o backup, incorpora as novidades.
         sincronizarBase()

@@ -21,14 +21,18 @@ import kotlinx.coroutines.launch
 
 class RevisaApp : Application() {
     lateinit var repo: Repositorio
+    lateinit var sync: app.revisatrt.sync.ServicoSync
     val escopo = CoroutineScope(SupervisorJob() + Dispatchers.Default)
 
     override fun onCreate() {
         super.onCreate()
         repo = Repositorio(this)
+        sync = app.revisatrt.sync.ServicoSync(this, app.revisatrt.data.AppDatabase.get(this))
         Lembretes.criarCanal(this)
         escopo.launch {
             repo.sincronizarBase()
+            // a base precisa estar carregada antes de receber dados da nuvem
+            runCatching { sync.iniciar() }
             Lembretes.reagendar(this@RevisaApp)
         }
     }
