@@ -207,17 +207,22 @@ fun BuscaTela(nav: Nav) {
     LaunchedEffect(Unit) { if (termo.isEmpty()) runCatching { foco.requestFocus() } }
 
     val palavras = Analise.normalizar(termo).split(Regex("\\s+")).filter { it.isNotBlank() }
-    val notasPorPonto = anotacoes.groupBy { it.pontoId }
-    val resultados = if (palavras.isEmpty()) emptyList() else pontos.mapNotNull { r ->
-        val p = r.ponto
-        val campos = listOf(
-            "título" to p.titulo, "o que a FCC cobra" to p.oQueCai, "pegadinhas" to p.atencao,
-            "texto da lei" to p.textoLei, "onde caiu" to p.ondeCaiu + " " + p.outrasProvas, "vigência" to p.vigencia,
-        ) + notasPorPonto[p.id].orEmpty().map { "anotação" to it.texto }
-        val tudo = Analise.normalizar(campos.joinToString(" ") { it.second })
+    // índice normalizado (sem acento, minúsculo), recalculado só quando os dados mudam
+    val indice = remember(pontos, anotacoes) {
+        val notasPorPonto = anotacoes.groupBy { it.pontoId }
+        pontos.map { r ->
+            val p = r.ponto
+            val campos = listOf(
+                "título" to p.titulo, "o que a FCC cobra" to p.oQueCai, "pegadinhas" to p.atencao,
+                "texto da lei" to p.textoLei, "onde caiu" to p.ondeCaiu + " " + p.outrasProvas, "vigência" to p.vigencia,
+            ) + notasPorPonto[p.id].orEmpty().map { "anotação" to it.texto }
+            val norm = campos.map { (nome, t) -> nome to Analise.normalizar(t) }
+            Triple(r, norm, norm.joinToString(" ") { it.second })
+        }
+    }
+    val resultados = if (palavras.isEmpty()) emptyList() else indice.mapNotNull { (r, campos, tudo) ->
         if (palavras.all { it in tudo }) {
-            val onde = campos.filter { (_, t) -> palavras.any { it in Analise.normalizar(t) } }.map { it.first }.distinct()
-            r to onde
+            r to campos.filter { (_, t) -> palavras.any { it in t } }.map { it.first }.distinct()
         } else null
     }.sortedWith(compareBy<Pair<PontoResumo, List<String>>> { if ("título" in it.second) 0 else 1 }.thenComparator { a, b -> Analise.ordemImportancia.compare(a.first, b.first) })
 

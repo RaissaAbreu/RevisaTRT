@@ -204,7 +204,15 @@ fun PontoTela(id: Long, nav: Nav) {
                             style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                     } else {
-                        SelectionContainer { Text(p.textoLei, style = MaterialTheme.typography.bodyMedium) }
+                        val pars = remember(p.textoLei) { paragrafosLei(p.textoLei) }
+                        // prévia: primeiros parágrafos (até ~700 caracteres)
+                        var soma = 0
+                        val previa = pars.takeWhile { soma += it.length; soma - it.length < 700 }.take(6)
+                        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) { previa.forEach { ParagrafoLei(it) } }
+                        Spacer(Modifier.height(10.dp))
+                        Button(onClick = { nav.texto(p.id) }, modifier = Modifier.fillMaxWidth()) {
+                            Text(if (previa.size < pars.size) "Ler texto completo (${pars.size} parágrafos)" else "Abrir no leitor")
+                        }
                     }
                     Spacer(Modifier.height(6.dp))
                     FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -336,7 +344,7 @@ fun PontoTela(id: Long, nav: Nav) {
             titulo = "Texto da lei", inicial = p.textoLei,
             onFechar = { editandoTexto = false },
             onSalvar = { t ->
-                escopo.launch { repo.dao.atualizarPonto(p.copy(textoLei = t.trim())) }
+                escopo.launch { repo.salvarTextoLei(p, t.trim()) }
                 editandoTexto = false
             },
         )

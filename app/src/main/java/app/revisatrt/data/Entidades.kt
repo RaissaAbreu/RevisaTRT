@@ -53,6 +53,8 @@ data class Ponto(
     /** Questões em provas fora da contagem (TRF-3, TRF-4, TJ-CE). */
     @ColumnInfo(defaultValue = "") val outrasProvas: String = "",
     val textoLei: String = "",
+    /** Usuária alterou o texto da lei: atualizações da base não o substituem. */
+    @ColumnInfo(defaultValue = "0") val textoEditado: Boolean = false,
     val favorito: Boolean = false,
     /** Usuário editou o conteúdo: atualizações da base não sobrescrevem. */
     val editado: Boolean = false,

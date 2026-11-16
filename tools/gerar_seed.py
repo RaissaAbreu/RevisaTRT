@@ -16,7 +16,7 @@ import unicodedata
 
 import openpyxl
 
-SEED_VERSION = 2
+SEED_VERSION = 3
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DADOS = os.path.join(RAIZ, "dados")
@@ -150,6 +150,16 @@ def main():
         else:
             print(f"{d['nome']}: sem planilha ainda")
         disciplinas.append(disc)
+    caminho_textos = os.path.join(DADOS, "textos.json")
+    if os.path.exists(caminho_textos):
+        with open(caminho_textos, encoding="utf-8") as f:
+            textos = json.load(f)
+        usados = 0
+        for p in pontos:
+            if not p["textoLei"] and textos.get(p["chave"]):
+                p["textoLei"] = textos[p["chave"]]
+                usados += 1
+        print(f"Textos de lei: {usados} pontos com texto (dados/textos.json)")
     seed = {
         "versao": SEED_VERSION,
         "concurso": edital["concurso"],

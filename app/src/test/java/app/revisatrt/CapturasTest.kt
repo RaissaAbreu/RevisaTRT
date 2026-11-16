@@ -6,6 +6,9 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextInput
+import androidx.compose.ui.test.performTextReplacement
+import androidx.compose.ui.test.performScrollTo
+import androidx.compose.ui.test.onAllNodesWithText
 import com.github.takahirom.roborazzi.captureScreenRoboImage
 import app.revisatrt.data.Analise
 import app.revisatrt.data.Anotacao
@@ -108,6 +111,23 @@ class CapturasTest {
         regra.onNodeWithText("Favoritos").performClick()
         esperar("Pontos que sempre esqueço")
         foto("08-favoritos")
+
+        // Direitos Humanos: texto da lei e leitor com busca
+        regra.onNodeWithText("Busca").performClick()
+        esperar("resultado(s)")
+        regra.onNodeWithText("terceirização").performTextReplacement("San José")
+        esperar("Convenção Americana")
+        regra.onAllNodesWithText("Convenção Americana sobre Direitos Humanos (Pacto", substring = true)[0].performScrollTo().performClick()
+        esperar("Ler texto completo")
+        regra.onNodeWithText("Ler texto completo", substring = true).performScrollTo()
+        foto("12-ponto-texto-lei")
+        regra.onNodeWithText("Ler texto completo", substring = true).performClick()
+        esperar("Buscar no texto")
+        regra.onNodeWithText("Buscar no texto", substring = true).performTextInput("prisão")
+        regra.waitUntil(5_000) { regra.onAllNodes(hasText("1/", substring = true)).fetchSemanticsNodes().isNotEmpty() }
+        foto("13-leitor-busca")
+        regra.activityRule.scenario.onActivity { it.onBackPressedDispatcher.onBackPressed() }
+        regra.activityRule.scenario.onActivity { it.onBackPressedDispatcher.onBackPressed() }
 
         regra.onNodeWithText("Ajustes").performClick()
         esperar("Aparência")

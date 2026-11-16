@@ -132,9 +132,17 @@ val MIGRACAO_1_2 = object : Migration(1, 2) {
     }
 }
 
+/** v3: marca de texto da lei editado. Na v1/v2 a base não trazia textos, então qualquer texto existente foi colado pela usuária. */
+val MIGRACAO_2_3 = object : Migration(2, 3) {
+    override fun migrate(db: SupportSQLiteDatabase) {
+        db.execSQL("ALTER TABLE ponto ADD COLUMN textoEditado INTEGER NOT NULL DEFAULT 0")
+        db.execSQL("UPDATE ponto SET textoEditado = 1 WHERE textoLei != ''")
+    }
+}
+
 @Database(
     entities = [Disciplina::class, Ponto::class, Revisao::class, Anotacao::class],
-    version = 2,
+    version = 3,
     exportSchema = true,
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -148,7 +156,7 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun get(context: Context): AppDatabase = instancia ?: synchronized(this) {
             instancia ?: Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, "revisatrt.db")
-                .addMigrations(MIGRACAO_1_2)
+                .addMigrations(MIGRACAO_1_2, MIGRACAO_2_3)
                 .build().also { instancia = it }
         }
     }

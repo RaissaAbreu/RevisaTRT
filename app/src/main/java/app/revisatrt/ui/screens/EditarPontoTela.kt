@@ -118,7 +118,7 @@ fun EditarPontoTela(id: Long, disciplinaInicial: Long, nav: Nav) {
                             disciplinaId = disciplinaId, titulo = titulo.trim(), importancia = importancia,
                             vigencia = vigencia.trim(), oQueCai = oQueCai.trim(), atencao = atencao.trim(),
                             textoLei = textoLei.trim(), ondeCaiu = ondeCaiu.trim(),
-                        )
+                        ).let { if (atual != null && it.textoLei != atual.textoLei) it.copy(textoEditado = true) else it }
                         repo.salvarPonto(p)
                         nav.voltar()
                     }

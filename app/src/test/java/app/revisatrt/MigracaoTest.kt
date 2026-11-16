@@ -7,6 +7,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import app.revisatrt.data.AjustesRepo
 import app.revisatrt.data.AppDatabase
 import app.revisatrt.data.MIGRACAO_1_2
+import app.revisatrt.data.MIGRACAO_2_3
 import app.revisatrt.data.Repositorio
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -47,7 +48,7 @@ class MigracaoTest {
             execSQL("INSERT INTO anotacao (pontoId, texto, criadaEm) VALUES (1, 'minha anotação', 1000)")
             close()
         }
-        helper.runMigrationsAndValidate(nome, 2, true, MIGRACAO_1_2).close()
+        helper.runMigrationsAndValidate(nome, 3, true, MIGRACAO_1_2, MIGRACAO_2_3).close()
 
         val ctx = ApplicationProvider.getApplicationContext<Application>()
         runBlocking {
@@ -77,6 +78,11 @@ class MigracaoTest {
             val civil = repo.dao.disciplinasAgora().first { it.chave == "civil" }
             assertEquals(24, civil.totalCadernos)
             assertTrue(porChave["constitucional-1"]!!.outrasProvas.contains("TRF-3"))
+
+            // textos de lei da base entram; o texto colado pela usuária é mantido
+            assertTrue(p1.textoEditado)
+            assertTrue(porChave["direitos_humanos-7"]!!.textoLei.contains("Pacto de San José"))
+            assertTrue(porChave["direitos_humanos-3"]!!.textoLei.contains("§ 3º Os tratados"))
         }
     }
 }

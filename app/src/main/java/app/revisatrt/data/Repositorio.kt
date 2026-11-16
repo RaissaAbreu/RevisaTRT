@@ -130,7 +130,8 @@ class Repositorio(private val context: Context) {
                     }
                     // dado informativo da planilha (não editável no app): sempre atualiza
                     if (novo.outrasProvas != p.outrasProvas) novo = novo.copy(outrasProvas = p.outrasProvas)
-                    if (novo.textoLei.isBlank() && p.textoLei.isNotBlank()) novo = novo.copy(textoLei = p.textoLei)
+                    // texto da lei: a base atualiza, a menos que a usuária tenha editado o texto no app
+                    if (!novo.textoEditado && p.textoLei.isNotBlank() && novo.textoLei != p.textoLei) novo = novo.copy(textoLei = p.textoLei)
                     if (novo != atual) dao.atualizarPonto(novo)
                 }
             }
@@ -155,6 +156,10 @@ class Repositorio(private val context: Context) {
     }
 
     suspend fun apagarAnotacao(id: Long) = dao.apagarAnotacao(id)
+
+    suspend fun salvarTextoLei(p: Ponto, texto: String) {
+        if (texto != p.textoLei) dao.atualizarPonto(p.copy(textoLei = texto, textoEditado = true))
+    }
 
     suspend fun salvarPonto(p: Ponto): Long =
         if (p.id == 0L) dao.inserirPonto(p) else {

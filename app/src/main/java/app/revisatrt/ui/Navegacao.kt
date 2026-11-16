@@ -33,6 +33,7 @@ import app.revisatrt.ui.screens.FavoritosTela
 import app.revisatrt.ui.screens.InicioTela
 import app.revisatrt.ui.screens.PontoTela
 import app.revisatrt.ui.screens.RevisarTela
+import app.revisatrt.ui.screens.TextoLeiTela
 
 private data class Aba(val rota: String, val rotulo: String, val icone: ImageVector)
 
@@ -51,6 +52,7 @@ class Nav(private val nav: NavHostController) {
     fun ponto(id: Long) = nav.navigate("ponto/$id")
     fun editar(id: Long, disciplinaId: Long = 0) = nav.navigate("editar/$id?disc=$disciplinaId")
     fun estatisticas() = nav.navigate("estatisticas")
+    fun texto(id: Long) = nav.navigate("texto/$id")
     fun aba(rota: String) = nav.navigate(rota) {
         popUpTo(nav.graph.findStartDestination().id) { saveState = true }
         launchSingleTop = true
@@ -89,6 +91,9 @@ fun AppNavegacao() {
             composable("estatisticas") { EstatisticasTela(nav) }
             composable("disciplina/{id}", arguments = listOf(navArgument("id") { type = NavType.LongType })) {
                 DisciplinaTela(it.arguments!!.getLong("id"), nav)
+            }
+            composable("texto/{id}", arguments = listOf(navArgument("id") { type = NavType.LongType })) {
+                TextoLeiTela(it.arguments!!.getLong("id"), nav)
             }
             composable("ponto/{id}", arguments = listOf(navArgument("id") { type = NavType.LongType })) {
                 PontoTela(it.arguments!!.getLong("id"), nav)
