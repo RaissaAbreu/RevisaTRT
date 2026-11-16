@@ -1,0 +1,364 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "2bcf791df12f4a21e3be064a4cb6b429",
+    "entities": [
+      {
+        "tableName": "disciplina",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `chave` TEXT NOT NULL, `nome` TEXT NOT NULL, `grupo` TEXT NOT NULL, `ordem` INTEGER NOT NULL, `edital` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "chave",
+            "columnName": "chave",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nome",
+            "columnName": "nome",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "grupo",
+            "columnName": "grupo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ordem",
+            "columnName": "ordem",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "edital",
+            "columnName": "edital",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_disciplina_chave",
+            "unique": true,
+            "columnNames": [
+              "chave"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_disciplina_chave` ON `${TABLE_NAME}` (`chave`)"
+          }
+        ]
+      },
+      {
+        "tableName": "ponto",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `chave` TEXT, `disciplinaId` INTEGER NOT NULL, `ordem` INTEGER NOT NULL, `titulo` TEXT NOT NULL, `oQueCai` TEXT NOT NULL, `importancia` INTEGER NOT NULL, `cadernos` INTEGER NOT NULL, `questoes` INTEGER NOT NULL, `areaJudiciaria` INTEGER NOT NULL, `oficialJustica` INTEGER NOT NULL, `vigencia` TEXT NOT NULL, `atencao` TEXT NOT NULL, `ondeCaiu` TEXT NOT NULL, `textoLei` TEXT NOT NULL, `favorito` INTEGER NOT NULL, `editado` INTEGER NOT NULL, `oculto` INTEGER NOT NULL, `criadoEm` INTEGER NOT NULL, FOREIGN KEY(`disciplinaId`) REFERENCES `disciplina`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "chave",
+            "columnName": "chave",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "disciplinaId",
+            "columnName": "disciplinaId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ordem",
+            "columnName": "ordem",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "titulo",
+            "columnName": "titulo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "oQueCai",
+            "columnName": "oQueCai",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "importancia",
+            "columnName": "importancia",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cadernos",
+            "columnName": "cadernos",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "questoes",
+            "columnName": "questoes",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "areaJudiciaria",
+            "columnName": "areaJudiciaria",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "oficialJustica",
+            "columnName": "oficialJustica",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "vigencia",
+            "columnName": "vigencia",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "atencao",
+            "columnName": "atencao",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ondeCaiu",
+            "columnName": "ondeCaiu",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "textoLei",
+            "columnName": "textoLei",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "favorito",
+            "columnName": "favorito",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "editado",
+            "columnName": "editado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "oculto",
+            "columnName": "oculto",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "criadoEm",
+            "columnName": "criadoEm",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_ponto_chave",
+            "unique": true,
+            "columnNames": [
+              "chave"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_ponto_chave` ON `${TABLE_NAME}` (`chave`)"
+          },
+          {
+            "name": "index_ponto_disciplinaId",
+            "unique": false,
+            "columnNames": [
+              "disciplinaId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_ponto_disciplinaId` ON `${TABLE_NAME}` (`disciplinaId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "disciplina",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "disciplinaId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "revisao",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `pontoId` INTEGER NOT NULL, `data` INTEGER NOT NULL, `avaliacao` INTEGER NOT NULL, FOREIGN KEY(`pontoId`) REFERENCES `ponto`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pontoId",
+            "columnName": "pontoId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "data",
+            "columnName": "data",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "avaliacao",
+            "columnName": "avaliacao",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_revisao_pontoId",
+            "unique": false,
+            "columnNames": [
+              "pontoId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_revisao_pontoId` ON `${TABLE_NAME}` (`pontoId`)"
+          },
+          {
+            "name": "index_revisao_data",
+            "unique": false,
+            "columnNames": [
+              "data"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_revisao_data` ON `${TABLE_NAME}` (`data`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "ponto",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "pontoId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "anotacao",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `pontoId` INTEGER NOT NULL, `texto` TEXT NOT NULL, `criadaEm` INTEGER NOT NULL, `editadaEm` INTEGER, FOREIGN KEY(`pontoId`) REFERENCES `ponto`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pontoId",
+            "columnName": "pontoId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "texto",
+            "columnName": "texto",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "criadaEm",
+            "columnName": "criadaEm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "editadaEm",
+            "columnName": "editadaEm",
+            "affinity": "INTEGER"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_anotacao_pontoId",
+            "unique": false,
+            "columnNames": [
+              "pontoId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_anotacao_pontoId` ON `${TABLE_NAME}` (`pontoId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "ponto",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "pontoId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2bcf791df12f4a21e3be064a4cb6b429')"
+    ]
+  }
+}

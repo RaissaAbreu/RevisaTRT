@@ -1,0 +1,65 @@
+name: Gerar APK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Preparar chave de assinatura
+        id: chave
+        env:
+          KEYSTORE_B64: ${{ secrets.REVISATRT_KEYSTORE_B64 }}
+        run: |
+          if [ -z "$KEYSTORE_B64" ]; then
+            echo "::warning::Segredos REVISATRT_KEYSTORE_B64 / REVISATRT_KEYSTORE_PASSWORD não cadastrados: APK não será publicado."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "$KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/revisatrt.jks"
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+            # a versão 1.0.1 foi publicada manualmente; o CI continua a partir da 1.0.2
+            echo "versao=$(( ${{ github.run_number }} + 1 ))" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Compilar APK assinado
+        if: steps.chave.outputs.ok == 'true'
+        env:
+          REVISATRT_KEYSTORE: ${{ runner.temp }}/revisatrt.jks
+          REVISATRT_KEYSTORE_PASSWORD: ${{ secrets.REVISATRT_KEYSTORE_PASSWORD }}
+          REVISATRT_KEY_ALIAS: revisatrt
+          REVISATRT_KEY_PASSWORD: ${{ secrets.REVISATRT_KEYSTORE_PASSWORD }}
+          REVISATRT_VERSION_CODE: ${{ steps.chave.outputs.versao }}
+          REVISATRT_VERSION_NAME: 1.0.${{ steps.chave.outputs.versao }}
+        run: |
+          ./gradlew assembleRelease --no-daemon
+          cp app/build/outputs/apk/release/app-release.apk RevisaTRT-1.0.${{ steps.chave.outputs.versao }}.apk
+
+      - uses: actions/upload-artifact@v4
+        if: steps.chave.outputs.ok == 'true'
+        with:
+          name: RevisaTRT-1.0.${{ steps.chave.outputs.versao }}
+          path: RevisaTRT-*.apk
+
+      - name: Publicar versão
+        if: steps.chave.outputs.ok == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v1.0.${{ steps.chave.outputs.versao }}" RevisaTRT-1.0.${{ steps.chave.outputs.versao }}.apk \
+            --title "RevisaTRT 1.0.${{ steps.chave.outputs.versao }}" \
+            --notes "APK para instalar no Android. Baixe o arquivo .apk abaixo pelo celular e abra para instalar/atualizar (seus dados são mantidos)."
