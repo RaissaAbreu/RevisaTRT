@@ -207,21 +207,23 @@ fun BuscaTela(nav: Nav) {
     LaunchedEffect(Unit) { if (termo.isEmpty()) runCatching { foco.requestFocus() } }
 
     val palavras = Analise.normalizar(termo).split(Regex("\\s+")).filter { it.isNotBlank() }
-    // índice normalizado (sem acento, minúsculo), recalculado só quando os dados mudam
-    val indice = remember(pontos, anotacoes) {
+    // índice normalizado (sem acento, minúsculo): só é refeito quando o conteúdo muda, não a cada revisão
+    val conteudo = remember(pontos) { pontos.map { it.ponto.copy(favorito = false) } }
+    val indice = remember(conteudo, anotacoes) {
         val notasPorPonto = anotacoes.groupBy { it.pontoId }
-        pontos.map { r ->
-            val p = r.ponto
+        conteudo.map { p ->
             val campos = listOf(
                 "título" to p.titulo, "o que a FCC cobra" to p.oQueCai, "pegadinhas" to p.atencao,
                 "texto da lei" to p.textoLei, "onde caiu" to p.ondeCaiu + " " + p.outrasProvas, "vigência" to p.vigencia,
             ) + notasPorPonto[p.id].orEmpty().map { "anotação" to it.texto }
             val norm = campos.map { (nome, t) -> nome to Analise.normalizar(t) }
-            Triple(r, norm, norm.joinToString(" ") { it.second })
+            Triple(p.id, norm, norm.joinToString(" ") { it.second })
         }
     }
-    val resultados = if (palavras.isEmpty()) emptyList() else indice.mapNotNull { (r, campos, tudo) ->
-        if (palavras.all { it in tudo }) {
+    val porId = pontos.associateBy { it.id }
+    val resultados = if (palavras.isEmpty()) emptyList() else indice.mapNotNull { (id, campos, tudo) ->
+        val r = porId[id]
+        if (r != null && palavras.all { it in tudo }) {
             r to campos.filter { (_, t) -> palavras.any { it in t } }.map { it.first }.distinct()
         } else null
     }.sortedWith(compareBy<Pair<PontoResumo, List<String>>> { if ("título" in it.second) 0 else 1 }.thenComparator { a, b -> Analise.ordemImportancia.compare(a.first, b.first) })

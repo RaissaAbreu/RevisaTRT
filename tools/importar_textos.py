@@ -28,7 +28,7 @@ SAIDA = os.path.join(DADOS, "textos.json")
 # Começo de dispositivo: força quebra de parágrafo
 ESTRUTURA = re.compile(
     r"^(§|Art\.|Artigo\b|Parágrafo|Considerando\b|Histórico:|Redação original|Nº \d|SUM-|OJ-|Súmula\b|Tema\b|CAP[IÍ]TULO|Cap[ií]tulo|T[IÍ]TULO|Se[cç][aã]o|SE[CÇ][AÃ]O|Livro|LIVRO|"
-    r"[IVXLC]+\s*[-–—.)]|\d+[.)º°]|\(?[a-z]\)|\(\w\)|•)"
+    r"[IVXLC]+\s*[-–—.)]|\d+[.)º°]|\(?[a-z]\)|\(\w\)|[ivx]+\)|•)"
 )
 CAMPOS = ("Na planilha:", "Caiu em:", "Status:", "Atenção:", "Observação:")
 
@@ -72,7 +72,8 @@ def montar_paragrafos(corpo):
             fechar(); saida.append("## " + t); ultima = None; continue
         if tipo == "artigo":
             fechar(); saida.append("### " + t); ultima = None; continue
-        quebra = (
+        continuacao = t[:1].islower() and not ESTRUTURA.match(t)
+        quebra = not continuacao and (
             ultima is None
             or ultima["x1"] < margem - 60          # linha anterior terminou cedo
             or ultima["t"].endswith((":", ";"))
@@ -109,8 +110,9 @@ def processar(caminhos, abas_para_chave):
         # capa: 2ª linha com o nome da aba (ex.: "Direitos Humanos") define a matéria
         titulo_aba = ls[1]["t"] if len(ls) > 1 and ls[0]["tam"] >= 16.0 else ""
         d = abas_para_chave.get(norm(titulo_aba))
-        if d:
-            todas.append({"t": titulo_aba, "tam": 99.0, "negrito": True, "disc": d, "x0": 0, "x1": 0})
+        if titulo_aba:
+            # capa de um novo vade mecum: encerra o ponto anterior (a matéria pode vir depois, nos blocos)
+            todas.append({"t": titulo_aba, "tam": 99.0, "negrito": True, "capa": True, "disc": d, "x0": 0, "x1": 0})
         todas.extend(ls)
     disc_atual = None
     caminho = " + ".join(os.path.basename(c) for c in caminhos)
@@ -121,8 +123,9 @@ def processar(caminhos, abas_para_chave):
     margem = max([l["x1"] for l in todas if l["tam"] == 10.0] or [540])
     for l in todas:
         t = l["t"]
-        if l.get("disc"):
+        if l.get("capa"):
             disc_atual = l["disc"]
+            atual = None
             continue
         if l["tam"] >= 16.0 and l["negrito"]:
             d = disciplina_do_bloco(t, abas_para_chave)
