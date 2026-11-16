@@ -27,8 +27,8 @@ SAIDA = os.path.join(DADOS, "textos.json")
 
 # Começo de dispositivo: força quebra de parágrafo
 ESTRUTURA = re.compile(
-    r"^(§|Art\.|Artigo\b|Parágrafo|Considerando\b|CAP[IÍ]TULO|Cap[ií]tulo|T[IÍ]TULO|Se[cç][aã]o|SE[CÇ][AÃ]O|Livro|LIVRO|"
-    r"[IVXLC]+\s*[-–—.)]|\d+[.)º°]|\(?[a-z]\)|\(\w\)|•|-\s)"
+    r"^(§|Art\.|Artigo\b|Parágrafo|Considerando\b|Histórico:|Redação original|Nº \d|SUM-|OJ-|Súmula\b|Tema\b|CAP[IÍ]TULO|Cap[ií]tulo|T[IÍ]TULO|Se[cç][aã]o|SE[CÇ][AÃ]O|Livro|LIVRO|"
+    r"[IVXLC]+\s*[-–—.)]|\d+[.)º°]|\(?[a-z]\)|\(\w\)|•)"
 )
 CAMPOS = ("Na planilha:", "Caiu em:", "Status:", "Atenção:", "Observação:")
 
@@ -89,26 +89,41 @@ def montar_paragrafos(corpo):
     return saida
 
 
+def disciplina_do_bloco(texto, abas_para_chave):
+    """'Processo do Trabalho – incidência Alta' -> chave da disciplina (ou None)."""
+    nome = re.split(r"\s+[–-]\s+", texto)[0]
+    return abas_para_chave.get(norm(nome))
+
+
 def processar(caminho, abas_para_chave):
     pdf = pdfplumber.open(caminho)
     todas = list(linhas(pdf))
     titulo_aba = todas[1]["t"] if len(todas) > 1 else ""
-    chave_disc = abas_para_chave.get(norm(titulo_aba))
-    if not chave_disc:
-        print(f"!! {os.path.basename(caminho)}: aba '{titulo_aba}' não corresponde a nenhuma disciplina", file=sys.stderr)
-        return {}, {}
+    disc_arquivo = abas_para_chave.get(norm(titulo_aba))
+    # arquivo com várias matérias: a matéria vem nos blocos "<Matéria> – incidência ..."
+    disc_atual = disc_arquivo
 
-    secoes = {}  # numero -> {"planilha": str, "obs": str, "corpo": []}
+    secoes = {}  # (disciplina, numero) -> {"titulo", "campos", "corpo"}
     atual = None
     campo = None
+    margem = max([l["x1"] for l in todas if l["tam"] == 10.0] or [540])
     for l in todas:
         t = l["t"]
-        if l["tam"] <= 8.0 or l["tam"] >= 16.0:
-            continue  # rodapé e "Incidência ..."
+        if l["tam"] >= 16.0 and l["negrito"]:
+            d = disciplina_do_bloco(t, abas_para_chave)
+            if d:
+                disc_atual = d
+            continue
+        if l["tam"] <= 8.0 or l["tam"] > 16.0:
+            continue  # rodapé e capa
         m = re.match(r"^(\d+)\. (.+)$", t)
         if l["negrito"] and l["tam"] == 13.0 and m:
+            if not disc_atual:
+                print(f"!! {os.path.basename(caminho)}: seção '{t}' sem matéria identificada", file=sys.stderr)
+                atual = None
+                continue
             n = int(m.group(1))
-            atual = secoes.setdefault(n, {"titulo": m.group(2), "campos": {}, "corpo": []})
+            atual = secoes.setdefault((disc_atual, n), {"titulo": m.group(2), "campos": {}, "corpo": []})
             campo = None
             continue
         if atual is None:
@@ -125,13 +140,21 @@ def processar(caminho, abas_para_chave):
         if l["negrito"] and l["tam"] >= 10.5:
             atual["corpo"].append(("norma", l))
         elif l["negrito"]:
-            atual["corpo"].append(("artigo", l))
+            ant = atual["corpo"][-1] if atual["corpo"] else None
+            if ant and ant[1].get("bloco_negrito") and ant[1]["x1"] >= margem - 60 and not ESTRUTURA.match(t):
+                # continuação de título/caput em negrito que quebrou a linha
+                ant[1]["t"] += " " + t
+                ant[1]["x1"] = l["x1"]
+                continue
+            l["bloco_negrito"] = True
+            # "Art. 129 - Todo empregado..." é caput (texto); os demais negritos são títulos
+            atual["corpo"].append(("texto" if t.startswith("Art.") else "artigo", l))
         else:
             atual["corpo"].append(("texto", l))
 
     textos, conferencia = {}, {}
-    for n, s in sorted(secoes.items()):
-        chave = f"{chave_disc}-{n}"
+    for (disc, n), s in sorted(secoes.items()):
+        chave = f"{disc}-{n}"
         partes = []
         obs = s["campos"].get("Observação")
         if obs:
@@ -139,7 +162,10 @@ def processar(caminho, abas_para_chave):
         partes += montar_paragrafos(s["corpo"])
         textos[chave] = "\n\n".join(partes).strip()
         conferencia[chave] = s["campos"].get("Na planilha", s["titulo"])
-    print(f"{os.path.basename(caminho)}: {len(textos)} pontos de '{titulo_aba}' -> {chave_disc}")
+    contagem = {}
+    for disc, _ in secoes:
+        contagem[disc] = contagem.get(disc, 0) + 1
+    print(f"{os.path.basename(caminho)}: " + ", ".join(f"{d}: {c} pontos" for d, c in contagem.items()))
     return textos, conferencia
 
 
