@@ -21,6 +21,9 @@ import unicodedata
 
 import pdfplumber
 
+LIGACAO = {"a", "o", "as", "os", "da", "do", "das", "dos", "de", "e", "ou", "na", "no", "nas", "nos", "em", "com",
+           "para", "por", "pela", "pelo", "pelas", "pelos", "ao", "aos", "à", "às", "um", "uma", "que", "se"}
+
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DADOS = os.path.join(RAIZ, "dados")
 SAIDA = os.path.join(DADOS, "textos.json")
@@ -75,7 +78,12 @@ def montar_paragrafos(corpo):
             fechar(); saida.append("## " + t); ultima = None; continue
         if tipo == "artigo":
             fechar(); saida.append("### " + t); ultima = None; continue
-        continuacao = t[:1].islower() and not ESTRUTURA.match(t)
+        anterior = (atual[-1] if atual else "").rstrip()
+        # minúscula, ou número logo após linha sem pontuação final ("…de 14 de março de" + "1979")
+        continuacao = (t[:1].islower() and not ESTRUTURA.match(t)) or (
+            t[:1].isdigit() and anterior != "" and not anterior.endswith((".", ";", ":", "!", "?"))) or (
+            # linha anterior termina em artigo/preposição: a frase continua ("…integrantes da" + "Seção, nos feitos…")
+            anterior.rsplit(" ", 1)[-1].lower() in LIGACAO)
         quebra = not continuacao and (
             ultima is None
             or ultima["x1"] < margem - 60          # linha anterior terminou cedo
@@ -85,7 +93,8 @@ def montar_paragrafos(corpo):
         if quebra:
             fechar()
         if atual and atual[-1].endswith("-") and not atual[-1].endswith(" -"):
-            atual[-1] = atual[-1][:-1] + t  # palavra hifenizada na quebra
+            # palavra hifenizada na quebra: "trin-" + "ta" = "trinta"; "Vice-" + "Presidente" mantém o hífen
+            atual[-1] = (atual[-1][:-1] if t[:1].islower() else atual[-1]) + t
         else:
             atual.append(t)
         ultima = l

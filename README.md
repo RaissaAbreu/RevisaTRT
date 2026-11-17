@@ -46,7 +46,7 @@ Depois de alterar, aumente `SEED_VERSION` em `tools/gerar_seed.py` e rode:
 python3 tools/gerar_seed.py
 ```
 
-Textos de lei: coloque os PDFs "Vade mecum FCC TRT" em `dados/vade_mecum/` e rode `python3 tools/importar_textos.py` antes do `gerar_seed.py`. Cada seção "N. Título" do PDF vira o texto do ponto N da aba correspondente.
+Textos de lei: coloque os PDFs "Vade mecum FCC TRT" em `dados/vade_mecum/` e rode `python3 tools/importar_textos.py` antes do `gerar_seed.py`. Cada seção "N. Título" do PDF vira o texto do ponto N da aba correspondente. Normas oficiais inteiras (ex.: Regimento Interno) vão em `dados/normas/`, ligadas ao ponto em `tools/importar_normas.py`; rode `python3 tools/importar_normas.py` também.
 
 O app incorpora pontos novos e atualiza os que você não editou, sem apagar seu progresso.
 

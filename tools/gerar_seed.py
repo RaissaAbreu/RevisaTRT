@@ -16,7 +16,7 @@ import unicodedata
 
 import openpyxl
 
-SEED_VERSION = 4
+SEED_VERSION = 5
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DADOS = os.path.join(RAIZ, "dados")
@@ -184,6 +184,11 @@ def main():
     if os.path.exists(caminho_textos):
         with open(caminho_textos, encoding="utf-8") as f:
             textos = json.load(f)
+        # normas oficiais enviadas inteiras (dados/normas) têm preferência sobre o vade mecum
+        caminho_normas = os.path.join(DADOS, "textos_normas.json")
+        if os.path.exists(caminho_normas):
+            with open(caminho_normas, encoding="utf-8") as f:
+                textos.update(json.load(f))
         usados = 0
         for p in pontos:
             if not p["textoLei"] and textos.get(p["chave"]):
