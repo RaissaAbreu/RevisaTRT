@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1007490311859",
+    "project_id": "revisatrt-1",
+    "storage_bucket": "revisatrt-1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007490311859:android:6beb9e57a7aa8e8ef832c6",
+        "android_client_info": {
+          "package_name": "app.revisatrt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007490311859-s8jkdj90pk1esli1h5mu5u5ft1ei32f3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.revisatrt",
+            "certificate_hash": "41ea25f5db70899ad2cf7328b0458baeee2efe1d"
+          }
+        },
+        {
+          "client_id": "1007490311859-2gc8mgmau7u2f0ojl97d1ulfqvcc5o4a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwOSShpHG26a3lVCVFZid9joaBgyVu39g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007490311859-2gc8mgmau7u2f0ojl97d1ulfqvcc5o4a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
