@@ -12,9 +12,14 @@ import app.revisatrt.data.Revisao
  */
 interface Nuvem {
     suspend fun buscar(colecao: String): List<Pair<String, Map<String, Any?>>>
-    fun enviar(colecao: String, id: String, dados: Map<String, Any?>)
+    /** Grava o documento; [aoTerminar] recebe null quando a nuvem confirmar, ou o erro se ela recusar. */
+    fun enviar(colecao: String, id: String, dados: Map<String, Any?>, aoTerminar: (Throwable?) -> Unit)
     /** Avisa a cada mudança (inclusive a primeira leitura). Devolve uma função para parar de ouvir. */
-    fun ouvir(colecao: String, aoMudar: (List<Pair<String, Map<String, Any?>>>) -> Unit): () -> Unit
+    fun ouvir(
+        colecao: String,
+        aoMudar: (List<Pair<String, Map<String, Any?>>>) -> Unit,
+        aoErro: (Throwable) -> Unit = {},
+    ): () -> Unit
 }
 
 /**
@@ -45,31 +50,67 @@ class Sincronizador(private val db: AppDatabase, private val nuvem: Nuvem) {
         enviarPendentes()
     }
 
+    /** Confirmações que chegaram da nuvem e ainda não foram registradas no banco. */
+    private val confirmacoes = java.util.concurrent.ConcurrentLinkedQueue<Triple<String, Long, Long>>()
+    /** Itens enviados aguardando confirmação (não reenviar enquanto isso). */
+    private val emEnvio = java.util.Collections.synchronizedSet(mutableSetOf<String>())
+    /** Último erro devolvido pela nuvem (para mostrar na tela). */
+    @Volatile var ultimoErro: Throwable? = null
+        private set
+    /** Chamado quando chega uma confirmação (o app usa para registrar logo). */
+    var aoConfirmar: () -> Unit = {}
+
+    private fun enviar(colecao: String, tabela: String, idLocal: Long, versao: Long, idNuvem: String, dados: Map<String, Any?>) {
+        val marca = "$tabela:$idLocal:$versao"
+        if (!emEnvio.add(marca)) return
+        nuvem.enviar(colecao, idNuvem, dados) { erro ->
+            emEnvio.remove(marca)
+            if (erro == null) {
+                confirmacoes.add(Triple(tabela, idLocal, versao))
+                aoConfirmar()
+            } else {
+                ultimoErro = erro  // continua pendente: será reenviado
+            }
+        }
+    }
+
+    /** Registra no banco as confirmações recebidas (só tira da fila o que a nuvem aceitou). */
+    suspend fun processarConfirmacoes() {
+        while (true) {
+            val (tabela, id, versao) = confirmacoes.poll() ?: break
+            when (tabela) {
+                "p" -> dao.pontoEnviado(id, versao)
+                "r" -> dao.revisaoEnviada(id, versao)
+                "a" -> dao.anotacaoEnviada(id, versao)
+            }
+            ultimoErro = null
+        }
+    }
+
     /** Envia as alterações locais pendentes. */
     suspend fun enviarPendentes() {
+        processarConfirmacoes()
         val chaves = dao.todosPontos().associate { it.id to it.chave }
         val discs = dao.disciplinasAgora().associate { it.id to it.chave }
         for (p in dao.pontosPendentes()) {
             val chave = p.chave ?: continue
-            nuvem.enviar(PONTOS, chave, pontoParaMapa(p, discs[p.disciplinaId]))
-            dao.pontoEnviado(p.id, p.atualizadoEm)
+            enviar(PONTOS, "p", p.id, p.atualizadoEm, chave, pontoParaMapa(p, discs[p.disciplinaId]))
         }
         for (r in dao.revisoesPendentes()) {
             val chave = chaves[r.pontoId] ?: continue
-            nuvem.enviar(REVISOES, r.uuid, mapOf(
+            enviar(REVISOES, "r", r.id, r.atualizadoEm, r.uuid, mapOf(
                 "ponto" to chave, "data" to r.data, "avaliacao" to r.avaliacao.toLong(),
                 "apagada" to r.apagada, "atualizadoEm" to r.atualizadoEm,
             ))
-            dao.revisaoEnviada(r.id, r.atualizadoEm)
         }
         for (a in dao.anotacoesPendentes()) {
             val chave = chaves[a.pontoId] ?: continue
-            nuvem.enviar(ANOTACOES, a.uuid, mapOf(
+            enviar(ANOTACOES, "a", a.id, a.atualizadoEm, a.uuid, mapOf(
                 "ponto" to chave, "texto" to a.texto, "criadaEm" to a.criadaEm, "editadaEm" to a.editadaEm,
                 "apagada" to a.apagada, "atualizadoEm" to a.atualizadoEm,
             ))
-            dao.anotacaoEnviada(a.id, a.atualizadoEm)
         }
+        processarConfirmacoes()
     }
 
     private fun pontoParaMapa(p: Ponto, disciplina: String?): Map<String, Any?> {

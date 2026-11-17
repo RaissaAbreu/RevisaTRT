@@ -28,12 +28,20 @@ class NuvemFalsa : Nuvem {
     val dados = mutableMapOf<String, MutableMap<String, MutableMap<String, Any?>>>()
     private val ouvintes = mutableMapOf<String, MutableList<(List<Pair<String, Map<String, Any?>>>) -> Unit>>()
     override suspend fun buscar(colecao: String) = dados[colecao].orEmpty().map { it.key to it.value.toMap() }
-    override fun enviar(colecao: String, id: String, dados: Map<String, Any?>) {
+    /** Simula regras do Firestore recusando gravações. */
+    var recusar = false
+    override fun enviar(colecao: String, id: String, dados: Map<String, Any?>, aoTerminar: (Throwable?) -> Unit) {
+        if (recusar) { aoTerminar(IllegalStateException("PERMISSION_DENIED")); return }
         val doc = this.dados.getOrPut(colecao) { mutableMapOf() }.getOrPut(id) { mutableMapOf() }
         doc.putAll(dados)
         ouvintes[colecao].orEmpty().toList().forEach { it(listOf(id to doc.toMap())) }
+        aoTerminar(null)
     }
-    override fun ouvir(colecao: String, aoMudar: (List<Pair<String, Map<String, Any?>>>) -> Unit): () -> Unit {
+    override fun ouvir(
+        colecao: String,
+        aoMudar: (List<Pair<String, Map<String, Any?>>>) -> Unit,
+        aoErro: (Throwable) -> Unit,
+    ): () -> Unit {
         ouvintes.getOrPut(colecao) { mutableListOf() }.add(aoMudar)
         return { ouvintes[colecao]?.remove(aoMudar) }
     }
@@ -91,7 +99,14 @@ class SincronizacaoTest {
         val idCriado = dT.inserirPonto(criado)
         dT.inserirRevisao(Revisao(pontoId = idCriado, data = 1_800, avaliacao = Avaliacao.MEDIO, atualizadoEm = 1_800))
 
+        // a nuvem recusa (regras não publicadas): nada pode sair da fila
+        nuvem.recusar = true
         sT.sincronizarTudo()
+        assertTrue(dT.totalPendentes().first() > 0)
+        assertTrue(sT.ultimoErro != null)
+        // regras corrigidas: o que estava na fila sobe
+        nuvem.recusar = false
+        sT.enviarPendentes()
         assertEquals(0, dT.totalPendentes().first())
 
         // 2) Celular entra com a mesma conta e recebe tudo
@@ -107,10 +122,10 @@ class SincronizacaoTest {
         assertEquals(2, resumo.totalRevisoes)
 
         // 3) Com os dois abertos (ouvindo a nuvem): anotação feita no celular aparece no tablet
-        val pararT = nuvem.ouvir(Sincronizador.ANOTACOES) { runBlocking { sT.aplicarAnotacoes(it) } }
-        val pararTR = nuvem.ouvir(Sincronizador.REVISOES) { runBlocking { sT.aplicarRevisoes(it) } }
-        val pararC = nuvem.ouvir(Sincronizador.REVISOES) { runBlocking { sC.aplicarRevisoes(it) } }
-        val pararCA = nuvem.ouvir(Sincronizador.ANOTACOES) { runBlocking { sC.aplicarAnotacoes(it) } }
+        val pararT = nuvem.ouvir(Sincronizador.ANOTACOES, aoMudar = { runBlocking { sT.aplicarAnotacoes(it) } })
+        val pararTR = nuvem.ouvir(Sincronizador.REVISOES, aoMudar = { runBlocking { sT.aplicarRevisoes(it) } })
+        val pararC = nuvem.ouvir(Sincronizador.REVISOES, aoMudar = { runBlocking { sC.aplicarRevisoes(it) } })
+        val pararCA = nuvem.ouvir(Sincronizador.ANOTACOES, aoMudar = { runBlocking { sC.aplicarAnotacoes(it) } })
         dC.inserirAnotacao(Anotacao(pontoId = celular.ponto("trabalho-3").id, texto = "feita no celular", criadaEm = 3_000, atualizadoEm = 3_000))
         sC.enviarPendentes()
         assertTrue(dT.anotacoes().first().any { it.texto == "feita no celular" && it.pontoId == tablet.ponto("trabalho-3").id })

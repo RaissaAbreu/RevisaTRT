@@ -55,14 +55,21 @@ interface EstudoDao {
     @Query("UPDATE ponto SET pendente = 0 WHERE id = :id AND atualizadoEm = :versao")
     suspend fun pontoEnviado(id: Long, versao: Long)
 
-    @Query("UPDATE ponto SET pendente = 1 WHERE id = :id")
+    @Query("UPDATE ponto SET pendente = 1, atualizadoEm = atualizadoEm + 1 WHERE id = :id")
     suspend fun reenviarPonto(id: Long)
 
-    @Query("UPDATE revisao SET pendente = 1 WHERE id = :id")
+    @Query("UPDATE revisao SET pendente = 1, atualizadoEm = atualizadoEm + 1 WHERE id = :id")
     suspend fun reenviarRevisao(id: Long)
 
-    @Query("UPDATE anotacao SET pendente = 1 WHERE id = :id")
+    @Query("UPDATE anotacao SET pendente = 1, atualizadoEm = atualizadoEm + 1 WHERE id = :id")
     suspend fun reenviarAnotacao(id: Long)
+
+    /** "Enviar tudo de novo": tudo o que a usuária fez volta para a fila de envio. */
+    @Query(
+        "UPDATE ponto SET pendente = 1, atualizadoEm = MAX(atualizadoEm, criadoEm, 1) WHERE favorito = 1 OR editado = 1 " +
+            "OR textoEditado = 1 OR oculto = 1 OR chave LIKE 'usuario-%'"
+    )
+    suspend fun marcarPontosPendentes()
 
     @Insert
     suspend fun inserirPonto(p: Ponto): Long

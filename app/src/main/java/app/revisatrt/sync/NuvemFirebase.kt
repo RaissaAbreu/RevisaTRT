@@ -34,13 +34,18 @@ class NuvemFirestore(private val uid: String) : Nuvem {
     override suspend fun buscar(colecao: String) =
         col(colecao).get().await().documents.map { it.id to (it.data ?: emptyMap()) }
 
-    // O Firestore guarda a escrita localmente e envia quando houver internet; não é preciso esperar.
-    override fun enviar(colecao: String, id: String, dados: Map<String, Any?>) {
-        col(colecao).document(id).set(dados, SetOptions.merge())
+    // O Firestore guarda a escrita localmente e envia quando houver internet; a confirmação chega depois.
+    override fun enviar(colecao: String, id: String, dados: Map<String, Any?>, aoTerminar: (Throwable?) -> Unit) {
+        col(colecao).document(id).set(dados, SetOptions.merge()).addOnCompleteListener { t -> aoTerminar(t.exception) }
     }
 
-    override fun ouvir(colecao: String, aoMudar: (List<Pair<String, Map<String, Any?>>>) -> Unit): () -> Unit {
-        val reg = col(colecao).addSnapshotListener { snap, _ ->
+    override fun ouvir(
+        colecao: String,
+        aoMudar: (List<Pair<String, Map<String, Any?>>>) -> Unit,
+        aoErro: (Throwable) -> Unit,
+    ): () -> Unit {
+        val reg = col(colecao).addSnapshotListener { snap, erro ->
+            if (erro != null) { aoErro(erro); return@addSnapshotListener }
             if (snap == null) return@addSnapshotListener
             val mudados = snap.documentChanges.map { it.document.id to it.document.data }
             if (mudados.isNotEmpty()) aoMudar(mudados)
@@ -117,29 +122,81 @@ class ServicoSync(private val context: Context, private val db: AppDatabase) {
 
     private fun conectar(uid: String, email: String?) {
         val s = Sincronizador(db, NuvemFirestore(uid))
+        // a nuvem confirmou um envio: tira da fila
+        s.aoConfirmar = { escopo.launch { trava.withLock { s.processarConfirmacoes() }; marcar() } }
         sincronizador = s
         _estado.value = EstadoSync(configurado = true, email = email)
         escopo.launch {
+            // A 1.0.6 tirava da fila o que a nuvem recusava (ex.: Firestore ainda não criado).
+            // Uma única vez, coloca tudo de novo na fila para garantir que nada fique só neste aparelho.
+            val prefs = context.getSharedPreferences("sync", Context.MODE_PRIVATE)
+            if (!prefs.getBoolean("reenvio_inicial_feito", false)) {
+                val dao = db.dao()
+                dao.marcarRevisoesPendentes()
+                dao.marcarAnotacoesPendentes()
+                dao.marcarPontosPendentes()
+                prefs.edit().putBoolean("reenvio_inicial_feito", true).apply()
+            }
             sincronizarAgora()
             pararOuvintes()
             val nuvem = NuvemFirestore(uid)
             ouvintes = listOf(
-                nuvem.ouvir(Sincronizador.PONTOS) { docs -> escopo.launch { trava.withLock { s.aplicarPontos(docs) }; marcar() } },
-                nuvem.ouvir(Sincronizador.REVISOES) { docs -> escopo.launch { trava.withLock { s.aplicarRevisoes(docs) }; marcar() } },
-                nuvem.ouvir(Sincronizador.ANOTACOES) { docs -> escopo.launch { trava.withLock { s.aplicarAnotacoes(docs) }; marcar() } },
+                nuvem.ouvir(Sincronizador.PONTOS, { docs -> escopo.launch { trava.withLock { s.aplicarPontos(docs) }; marcar() } }, ::falhou),
+                nuvem.ouvir(Sincronizador.REVISOES, { docs -> escopo.launch { trava.withLock { s.aplicarRevisoes(docs) }; marcar() } }, ::falhou),
+                nuvem.ouvir(Sincronizador.ANOTACOES, { docs -> escopo.launch { trava.withLock { s.aplicarAnotacoes(docs) }; marcar() } }, ::falhou),
             )
             // envia sozinho o que for alterado neste aparelho
             envioAutomatico = escopo.launch {
                 db.dao().totalPendentes().filter { it > 0 }.debounce(800).collect {
-                    trava.withLock { runCatching { s.enviarPendentes() } }
-                    marcar()
+                    enviar(s)
                 }
             }
         }
     }
 
     private fun marcar() {
-        _estado.value = _estado.value.copy(ultima = System.currentTimeMillis(), sincronizando = false, erro = null)
+        val erro = sincronizador?.ultimoErro
+        if (erro != null) falhou(erro)
+        else _estado.value = _estado.value.copy(ultima = System.currentTimeMillis(), sincronizando = false, erro = null)
+    }
+
+    private fun falhou(e: Throwable) {
+        _estado.value = _estado.value.copy(sincronizando = false, erro = descrever(e))
+    }
+
+    /** Envia o que está na fila; se a nuvem recusar, tenta de novo em 30 s. */
+    private suspend fun enviar(s: Sincronizador) {
+        trava.withLock { runCatching { s.enviarPendentes() } }
+        marcar()
+        if (s.ultimoErro != null) {
+            tentativa?.cancel()
+            tentativa = escopo.launch { kotlinx.coroutines.delay(30_000); if (sincronizador === s) enviar(s) }
+        }
+    }
+    private var tentativa: Job? = null
+
+    /** Coloca de novo na fila tudo o que a usuária fez neste aparelho e sincroniza. */
+    suspend fun enviarTudoDeNovo() {
+        val dao = db.dao()
+        dao.marcarRevisoesPendentes()
+        dao.marcarAnotacoesPendentes()
+        dao.marcarPontosPendentes()
+        sincronizarAgora()
+    }
+
+    private fun descrever(e: Throwable): String {
+        val codigo = (e as? com.google.firebase.firestore.FirebaseFirestoreException)?.code
+        val msg = e.message.orEmpty()
+        return when {
+            codigo == com.google.firebase.firestore.FirebaseFirestoreException.Code.PERMISSION_DENIED ->
+                "A nuvem recusou o acesso. No Firebase, confira as Regras do Firestore (devem estar publicadas)."
+            codigo == com.google.firebase.firestore.FirebaseFirestoreException.Code.NOT_FOUND ||
+                msg.contains("does not exist", ignoreCase = true) ->
+                "O banco Firestore não existe. No Firebase, crie o Firestore Database (passo D)."
+            codigo == com.google.firebase.firestore.FirebaseFirestoreException.Code.UNAVAILABLE ->
+                "Sem conexão com a nuvem agora. As alterações ficam guardadas e sobem depois."
+            else -> "Erro na sincronização: ${codigo ?: ""} $msg".trim()
+        }
     }
 
     suspend fun sincronizarAgora() {
@@ -149,7 +206,7 @@ class ServicoSync(private val context: Context, private val db: AppDatabase) {
             trava.withLock { s.sincronizarTudo() }
             marcar()
         } catch (e: Exception) {
-            _estado.value = _estado.value.copy(sincronizando = false, erro = "Sem conexão com a nuvem agora. As alterações ficam guardadas e sobem depois.")
+            falhou(e)
         }
     }
 
@@ -158,5 +215,6 @@ class ServicoSync(private val context: Context, private val db: AppDatabase) {
         ouvintes = emptyList()
         envioAutomatico?.cancel()
         envioAutomatico = null
+        tentativa?.cancel()
     }
 }

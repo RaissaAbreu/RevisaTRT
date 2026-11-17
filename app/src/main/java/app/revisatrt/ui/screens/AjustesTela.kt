@@ -332,6 +332,9 @@ private fun CartaoSync() {
                     FilledTonalButton(onClick = { escopo.launch { app.sync.sincronizarAgora() } }, modifier = Modifier.weight(1f)) { Text("Sincronizar agora") }
                     OutlinedButton(onClick = { app.sync.sair() }, modifier = Modifier.weight(1f)) { Text("Sair") }
                 }
+                TextButton(onClick = { escopo.launch { app.sync.enviarTudoDeNovo() } }) {
+                    Text("Enviar tudo deste aparelho de novo")
+                }
             }
         }
         estado.erro?.let { Text(it, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.error) }
