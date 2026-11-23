@@ -98,6 +98,17 @@ class CapturasTest {
         foto("04-ponto")
         rolarAte("Art. 130")
         foto("04b-ponto-texto-integral")
+
+        // Copiar: toque longo seleciona o trecho; "Copiar tudo" copia o texto inteiro sem as marcas de título
+        // (o toque longo abre a lupa de seleção do Android, que o Robolectric não consegue desenhar:
+        //  a seleção por toque longo só dá para conferir no aparelho)
+        regra.onNodeWithText("Copiar tudo").performClick()
+        regra.waitForIdle()
+        val area = regra.activity.getSystemService(android.content.ClipboardManager::class.java)
+        val copiado = area.primaryClip!!.getItemAt(0).text.toString()
+        assertTrue(copiado.startsWith("CLT (Decreto-Lei 5.452/1943)"))
+        assertTrue(copiado.contains("Art. 129 - Todo empregado terá direito anualmente ao gozo de um período de férias"))
+        assertTrue(!copiado.contains("## "))
         rolarAte("SUM-7")
         foto("04c-ponto-sumulas")
         regra.onNodeWithText("Revisado", useUnmergedTree = true).performClick()

@@ -60,7 +60,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -97,6 +99,7 @@ fun PontoTela(id: Long, nav: Nav) {
     val contexto = LocalContext.current
     val escopo = rememberCoroutineScope()
     val snackbar = remember { SnackbarHostState() }
+    val area = LocalClipboardManager.current
 
     val ponto by repo.dao.ponto(id).collectAsStateWithLifecycle(null)
     val revisoes by remember(id) { repo.dao.revisoesDo(id) }.collectAsStateWithLifecycle(emptyList())
@@ -141,6 +144,8 @@ fun PontoTela(id: Long, nav: Nav) {
             IconButton(onClick = { apagarPonto = true }) { Icon(Icons.Filled.Delete, "Apagar ponto") }
         },
     ) { padding ->
+        // tudo selecionável: segurar o dedo, ajustar as alças e tocar em Copiar
+        SelectionContainer {
         LazyColumn(
             Modifier.fillMaxSize().padding(padding),
             contentPadding = PaddingValues(start = 16.dp, end = 16.dp, bottom = 96.dp),
@@ -209,7 +214,7 @@ fun PontoTela(id: Long, nav: Nav) {
                     Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp))
                         .background(MaterialTheme.colorScheme.secondaryContainer).padding(start = 14.dp, top = 10.dp, bottom = 4.dp, end = 4.dp)
                 ) {
-                    SelectionContainer { Text(n.texto, color = MaterialTheme.colorScheme.onSecondaryContainer, modifier = Modifier.padding(end = 10.dp)) }
+                    Text(n.texto, color = MaterialTheme.colorScheme.onSecondaryContainer, modifier = Modifier.padding(end = 10.dp))
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
                             Analise.dataHora(n.criadaEm) + (n.editadaEm?.let { " · editada em ${Analise.dataHora(it)}" } ?: ""),
@@ -225,7 +230,13 @@ fun PontoTela(id: Long, nav: Nav) {
             item {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text("Texto da lei", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold, modifier = Modifier.weight(1f))
-                    if (p.textoLei.isNotBlank()) IconButton(onClick = { nav.texto(p.id) }) { Icon(Icons.Filled.Search, "Buscar no texto") }
+                    if (p.textoLei.isNotBlank()) {
+                        TextButton(onClick = {
+                            area.setText(AnnotatedString(textoParaCopiar(p.textoLei)))
+                            escopo.launch { snackbar.showSnackbar("Texto da lei copiado") }
+                        }) { Text("Copiar tudo") }
+                        IconButton(onClick = { nav.texto(p.id) }) { Icon(Icons.Filled.Search, "Buscar no texto") }
+                    }
                     IconButton(onClick = { editandoTexto = true }) { Icon(Icons.Filled.Edit, "Editar texto da lei") }
                 }
                 if (p.textoLei.isBlank()) {
@@ -287,6 +298,7 @@ fun PontoTela(id: Long, nav: Nav) {
                     IconButton(onClick = { revisaoApagar = r }) { Icon(Icons.Filled.Close, "Apagar revisão", Modifier.size(18.dp)) }
                 }
             }
+        }
         }
     }
 
@@ -369,7 +381,7 @@ private fun Bloco(titulo: String, texto: String, fundo: Color, corTexto: Color =
     Column(Modifier.fillMaxWidth().clip(RoundedCornerShape(18.dp)).background(fundo).padding(14.dp)) {
         Text(titulo, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold, color = corTexto)
         Spacer(Modifier.height(6.dp))
-        SelectionContainer { Text(texto, style = MaterialTheme.typography.bodyMedium, color = corTexto) }
+        Text(texto, style = MaterialTheme.typography.bodyMedium, color = corTexto)
     }
 }
 

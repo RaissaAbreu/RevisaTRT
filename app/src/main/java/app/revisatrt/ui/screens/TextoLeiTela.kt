@@ -34,6 +34,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.launch
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
@@ -44,6 +49,10 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import app.revisatrt.ui.LocalRepo
 import app.revisatrt.ui.Nav
 import java.text.Normalizer
+
+/** Texto para a área de transferência: sem as marcas de título usadas na formatação. */
+fun textoParaCopiar(texto: String): String =
+    paragrafosLei(texto).joinToString("\n\n") { it.removePrefix("### ").removePrefix("## ") }
 
 /** Divide o texto da lei em parágrafos (linhas em branco ou quebras simples). */
 fun paragrafosLei(texto: String): List<String> =
@@ -128,7 +137,18 @@ fun TextoLeiTela(id: Long, nav: Nav) {
         if (achados.isNotEmpty()) lista.animateScrollToItem(achados[atual.coerceIn(0, achados.lastIndex)])
     }
 
-    TelaBase(titulo = "Texto da lei", subtitulo = p.titulo, voltar = nav::voltar) { padding ->
+    val area = LocalClipboardManager.current
+    val snackbar = remember { SnackbarHostState() }
+    val escopo = rememberCoroutineScope()
+    TelaBase(
+        titulo = "Texto da lei", subtitulo = p.titulo, voltar = nav::voltar, snackbar = snackbar,
+        acoes = {
+            TextButton(onClick = {
+                area.setText(AnnotatedString(textoParaCopiar(p.textoLei)))
+                escopo.launch { snackbar.showSnackbar("Texto da lei copiado") }
+            }) { Text("Copiar tudo") }
+        },
+    ) { padding ->
         Column(Modifier.fillMaxSize().padding(padding)) {
             Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp), verticalAlignment = Alignment.CenterVertically) {
                 OutlinedTextField(
